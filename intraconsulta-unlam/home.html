@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel Principal - Intraconsulta UNLaM</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- BARRA SUPERIOR WIREFRAME -->
+  <header class="top-header">
+    <div class="header-left">
+      <a href="home.html" class="icon-btn" title="Inicio">🏠</a>
+      <div class="search-bar">
+        <input type="text" placeholder="Buscar trámite, materia o certificado...">
+        <span>🔍</span>
+      </div>
+    </div>
+    <div class="header-right">
+      <a href="calendario.html" class="icon-btn" title="Calendario Académico">📅</a>
+      <a href="ayuda.html" class="icon-btn badge-notif" title="Notificaciones">🔔</a>
+      <a href="index.html" class="icon-btn" title="Perfil / Cerrar Sesión">👤</a>
+    </div>
+  </header>
+
+  <div class="app-layout">
+    <!-- FRANJA VERDE LATERAL "MENÚ" (WIREFRAME) -->
+    <aside class="sidebar-rail" onclick="toggleMenu()" title="Abrir menú principal">
+      <div class="rail-hamburger">☰</div>
+      <div class="rail-text">MENÚ</div>
+    </aside>
+
+    <!-- MENÚ DESPLEGABLE CON LAS 4 OPCIONES PRINCIPALES -->
+    <nav class="sidebar-drawer" id="sidebarDrawer">
+      <div class="drawer-title">Navegación Principal</div>
+      <a href="academica.html" class="menu-pill-btn ">📚 Info académica</a>
+      <a href="tramites.html" class="menu-pill-btn ">📝 Trámites y reclamos</a>
+      <a href="pagos.html" class="menu-pill-btn ">💳 Pagos</a>
+      <a href="ayuda.html" class="menu-pill-btn ">💬 Ayuda y contacto</a>
+      <hr style="border: 0; border-top: 1px solid #E2E8F0; margin: 8px 0;">
+      <a href="home.html" class="menu-pill-btn active">🏠 Panel Principal</a>
+    </nav>
+
+    <!-- CONTENIDO DE LA PANTALLA -->
+    <main class="main-content">
+      
+<h1 class="page-title">Panel Principal</h1>
+
+<!-- CARRUSEL WIREFRAME -->
+<section class="carousel-box">
+  <span class="carousel-tag" id="slideTag">AVISO IMPORTANTE</span>
+  <h2 id="slideTitle">Inscripción a Exámenes Finales - Llamado Julio</h2>
+  <p id="slideDesc">Ya podés anotarte de forma 100% digital sin filas. Verificá tus correlativas antes de confirmar.</p>
+  <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
+    <a href="academica.html" class="btn-white" id="slideBtn">Ir a Inscripciones</a>
+    <div class="carousel-controls">
+      <button class="icon-btn" onclick="changeSlide(-1)">◀</button>
+      <button class="icon-btn" onclick="changeSlide(1)">▶</button>
+    </div>
+  </div>
+</section>
+
+<!-- LAS 4 CATEGORÍAS PRINCIPALES EN ACCESO DIRECTO -->
+<h2 style="font-size:1.2rem; margin-bottom:14px;">¿Qué gestión querés realizar hoy?</h2>
+<div class="grid-4" style="margin-bottom:26px;">
+  <a href="academica.html" class="card" style="text-align:center; border-top:4px solid var(--unlam-green);">
+    <div style="font-size:2rem; margin-bottom:8px;">📚</div>
+    <h3>Info académica</h3>
+    <p style="font-size:0.85rem; color:var(--text-muted); margin-top:4px;">Materias, horarios, notas e inscripciones</p>
+  </a>
+  <a href="tramites.html" class="card" style="text-align:center; border-top:4px solid var(--unlam-green);">
+    <div style="font-size:2rem; margin-bottom:8px;">📝</div>
+    <h3>Trámites y reclamos</h3>
+    <p style="font-size:0.85rem; color:var(--text-muted); margin-top:4px;">Certificados, becas y reclamo de notas</p>
+  </a>
+  <a href="pagos.html" class="card" style="text-align:center; border-top:4px solid var(--unlam-green);">
+    <div style="font-size:2rem; margin-bottom:8px;">💳</div>
+    <h3>Pagos</h3>
+    <p style="font-size:0.85rem; color:var(--text-muted); margin-top:4px;">Aranceles, verano y Mercado Pago</p>
+  </a>
+  <a href="ayuda.html" class="card" style="text-align:center; border-top:4px solid var(--unlam-green);">
+    <div style="font-size:2rem; margin-bottom:8px;">💬</div>
+    <h3>Ayuda y contacto</h3>
+    <p style="font-size:0.85rem; color:var(--text-muted); margin-top:4px;">Tickets de soporte y preguntas frecuentes</p>
+  </a>
+</div>
+
+<!-- CALENDARIO ACADÉMICO INTEGRADO (Requisito funcional del Brief) -->
+<section class="card" id="calendario">
+  <div class="card-header">
+    <h3>📅 Próximos Eventos - Noviembre / Diciembre 2026</h3>
+    <a href="calendario.html" class="btn-primary" style="padding: 7px 16px; font-size: 0.85rem;">Abrir Calendario Interactivo →</a>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>Fecha</th>
+        <th>Evento</th>
+        <th>Tipo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>12 y 13/11/2026</strong></td>
+        <td>Inscripción a Exámenes Finales (Diciembre 2026) - 10 a 18 h</td>
+        <td><span class="status-badge status-ok">Oficial UNLaM</span></td>
+      </tr>
+      <tr>
+        <td><strong>18/11/2026</strong></td>
+        <td>Verificación de inscripción a Exámenes Finales (10 a 22 h)</td>
+        <td><span class="status-badge status-ok">Oficial UNLaM</span></td>
+      </tr>
+      <tr>
+        <td><strong>23/11/2026</strong></td>
+        <td>Feriado Nacional - Día de la Soberanía Nacional (Sin actividad)</td>
+        <td><span class="status-badge" style="background:#FEE2E2; color:#991B1B;">Feriado</span></td>
+      </tr>
+      <tr>
+        <td><strong>05/12/2026</strong></td>
+        <td>Finalización de clases - 2° Cuatrimestre 2026</td>
+        <td><span class="status-badge status-info">Oficial UNLaM</span></td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+    </main>
+  </div>
+
+  <!-- CHATBOT FLOTANTE (WIREFRAME) -->
+  <button class="chatbot-fab" onclick="toggleChat()" title="Asistente Virtual UNLaM">🤖</button>
+
+  <div class="chatbot-window" id="chatbotWindow">
+    <div class="chat-header">
+      <span>🤖 Asistente Virtual UNLaM</span>
+      <button onclick="toggleChat()" style="background:none;border:none;color:white;font-size:1.1rem;cursor:pointer;">✕</button>
+    </div>
+    <div class="chat-body" id="chatBody">
+      <div class="msg-bot">¡Hola! Soy el asistente de Intraconsulta. Consultame sobre inscripciones, pagos o reclamos.</div>
+    </div>
+    <div class="chat-footer">
+      <input type="text" id="chatInput" placeholder="Escribí tu duda..." onkeypress="if(event.key==='Enter') sendChat()">
+      <button class="btn-primary" style="padding: 6px 14px;" onclick="sendChat()">Enviar</button>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="main-footer">
+    Universidad Nacional de La Matanza • Sistema de Autogestión Estudiantil • <a href="error.html" style="text-decoration:underline;">Simular Alerta/Error</a>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

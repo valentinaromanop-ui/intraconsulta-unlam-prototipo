@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trámites y Reclamos - Intraconsulta UNLaM</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- BARRA SUPERIOR WIREFRAME -->
+  <header class="top-header">
+    <div class="header-left">
+      <a href="home.html" class="icon-btn" title="Inicio">🏠</a>
+      <div class="search-bar">
+        <input type="text" placeholder="Buscar trámite, materia o certificado...">
+        <span>🔍</span>
+      </div>
+    </div>
+    <div class="header-right">
+      <a href="home.html#calendario" class="icon-btn" title="Calendario Académico">📅</a>
+      <a href="ayuda.html" class="icon-btn badge-notif" title="Notificaciones">🔔</a>
+      <a href="index.html" class="icon-btn" title="Perfil / Cerrar Sesión">👤</a>
+    </div>
+  </header>
+
+  <div class="app-layout">
+    <!-- FRANJA VERDE LATERAL "MENÚ" (WIREFRAME) -->
+    <aside class="sidebar-rail" onclick="toggleMenu()" title="Abrir menú principal">
+      <div class="rail-hamburger">☰</div>
+      <div class="rail-text">MENÚ</div>
+    </aside>
+
+    <!-- MENÚ DESPLEGABLE CON LAS 4 OPCIONES PRINCIPALES -->
+    <nav class="sidebar-drawer" id="sidebarDrawer">
+      <div class="drawer-title">Navegación Principal</div>
+      <a href="academica.html" class="menu-pill-btn ">📚 Info académica</a>
+      <a href="tramites.html" class="menu-pill-btn active">📝 Trámites y reclamos</a>
+      <a href="pagos.html" class="menu-pill-btn ">💳 Pagos</a>
+      <a href="ayuda.html" class="menu-pill-btn ">💬 Ayuda y contacto</a>
+      <hr style="border: 0; border-top: 1px solid #E2E8F0; margin: 8px 0;">
+      <a href="home.html" class="menu-pill-btn ">🏠 Panel Principal</a>
+    </nav>
+
+    <!-- CONTENIDO DE LA PANTALLA -->
+    <main class="main-content">
+      
+<h1 class="page-title">Trámites y reclamos</h1>
+
+<!-- PÍLDORAS SUPERIORES WIREFRAME -->
+<div class="subnav-pills">
+  <button class="pill-tab">Reclamo de notas / materias</button>
+  <button class="pill-tab outline">Solicitud de certificados</button>
+  <button class="pill-tab outline">Solicitud de becas</button>
+  <button class="pill-tab outline">Cambios de carrera</button>
+</div>
+
+<div class="grid-2">
+  <!-- FORMULARIO (Requisito de la consigna) -->
+  <div class="card">
+    <div class="card-header">
+      <h3>Formulario de Reclamo Académico</h3>
+    </div>
+    <form onsubmit="event.preventDefault(); alert('✅ Reclamo enviado correctamente. Se generó el Ticket #4092.');">
+      <div class="form-group">
+        <label>Tipo de gestión</label>
+        <select class="form-control">
+          <option>Reclamo por carga de nota de parcial / final</option>
+          <option>Error en asignación de comisión</option>
+          <option>Certificado de alumno regular</option>
+          <option>Solicitud de Beca Progresar / UNLaM</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Materia involucrada</label>
+        <input type="text" class="form-control" placeholder="Ej: Visualización e Interfaces - Com 01" required>
+      </div>
+      <div class="form-group">
+        <label>Detalle del reclamo</label>
+        <textarea class="form-control" rows="4" placeholder="Explicá brevemente el inconveniente..." required></textarea>
+      </div>
+      <div class="form-group">
+        <label>Adjuntar comprobante (PDF o JPG)</label>
+        <input type="file" class="form-control">
+      </div>
+      <button type="submit" class="btn-primary">Enviar Solicitud</button>
+    </form>
+  </div>
+
+  <!-- SEGUIMIENTO DE TRÁMITES -->
+  <div class="card">
+    <div class="card-header">
+      <h3>Estado de mis trámites recientes</h3>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>N° Trámite</th>
+          <th>Gestión</th>
+          <th>Estado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>#3891</td>
+          <td>Certificado Alumno Regular</td>
+          <td><span class="status-badge status-ok">Listo para descargar</span></td>
+        </tr>
+        <tr>
+          <td>#3940</td>
+          <td>Revisión Acta Final</td>
+          <td><span class="status-badge status-wait">En revisión Dpto.</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+    </main>
+  </div>
+
+  <!-- CHATBOT FLOTANTE (WIREFRAME) -->
+  <button class="chatbot-fab" onclick="toggleChat()" title="Asistente Virtual UNLaM">🤖</button>
+
+  <div class="chatbot-window" id="chatbotWindow">
+    <div class="chat-header">
+      <span>🤖 Asistente Virtual UNLaM</span>
+      <button onclick="toggleChat()" style="background:none;border:none;color:white;font-size:1.1rem;cursor:pointer;">✕</button>
+    </div>
+    <div class="chat-body" id="chatBody">
+      <div class="msg-bot">¡Hola! Soy el asistente de Intraconsulta. Consultame sobre inscripciones, pagos o reclamos.</div>
+    </div>
+    <div class="chat-footer">
+      <input type="text" id="chatInput" placeholder="Escribí tu duda..." onkeypress="if(event.key==='Enter') sendChat()">
+      <button class="btn-primary" style="padding: 6px 14px;" onclick="sendChat()">Enviar</button>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="main-footer">
+    Universidad Nacional de La Matanza • Sistema de Autogestión Estudiantil • <a href="error.html" style="text-decoration:underline;">Simular Alerta/Error</a>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
