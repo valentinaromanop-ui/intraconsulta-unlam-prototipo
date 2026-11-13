@@ -3,173 +3,48 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Info Académica - Intraconsulta UNLaM</title>
+  <title>Info académica - Intraconsulta UNLaM</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap">
   <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
-
-  <!-- BARRA SUPERIOR WIREFRAME -->
-   <header class="top-header">
-    <div class="header-left">
-    <a href="home.html" class="icon-btn" title="Inicio"> <img src="logo-unlam-bt.png" alt="icono-UNLAM"> </a>
-      <div class="search-bar">
-        <input type="text" placeholder="Buscar trámite, materia o certificado...">
-        <span>🔍</span>
-      </div>
-    </div>
-    <div class="header-right">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-<a href="calendario.html" class="icon-btn" title="Calendario Académico">
-  <i class="fa-solid fa-calendar-days"></i>
-</a>
-
-
-<!-- Botón de Notificaciones -->
-<a href="ayuda.html" class="icon-btn badge-notif" title="Notificaciones">
-  <i class="fa-solid fa-bell"></i>
-</a>
-
-<!-- Botón de Perfil / Cerrar Sesión -->
-<a href="index.html" class="icon-btn" title="Perfil / Cerrar Sesión">
-  <i class="fa-solid fa-user"></i>
-</a>
-    </div>
-  </header>
-
-  <div class="app-layout">
-    <!-- FRANJA VERDE LATERAL "MENÚ" (WIREFRAME) -->
-    <aside class="sidebar-rail" onclick="toggleMenu()" title="Abrir menú principal">
-      <div class="rail-hamburger">☰</div>
-      <div class="rail-text">MENÚ</div>
-    </aside>
-
-    <!-- MENÚ DESPLEGABLE CON LAS 4 OPCIONES PRINCIPALES -->
-      <nav class="sidebar-drawer" id="sidebarDrawer">
-  <div class="drawer-title">Navegación Principal</div>
-  <a href="academica.html" class="menu-pill-btn">
-    <i class="fa-solid fa-graduation-cap"></i> Info académica
-  </a>
-  <a href="tramites.html" class="menu-pill-btn">
-    <i class="fa-solid fa-file-lines"></i> Trámites y reclamos
-  </a>
-  <a href="pagos.html" class="menu-pill-btn">
-    <i class="fa-solid fa-credit-card"></i> Pagos
-  </a>
-  <a href="ayuda.html" class="menu-pill-btn">
-    <i class="fa-solid fa-circle-question"></i> Ayuda y contacto
-  </a>
-  <hr style="border: 0; border-top: 1px solid #E2E8F0; margin: 8px 0;">
-  <a href="home.html" class="menu-pill-btn active">
-    <i class="fa-solid fa-house"></i> Panel Principal
-  </a>
-</nav>
-
-    <!-- CONTENIDO DE LA PANTALLA -->
-    <main class="main-content">
-      
-<h1 class="page-title">Info académica</h1>
-
-<!-- PÍLDORAS SUPERIORES WIREFRAME -->
-<div class="subnav-pills">
-  <button class="pill-tab">Consultar materias y horarios</button>
-  <button class="pill-tab outline">Inscribirse a materias / finales</button>
-  <button class="pill-tab outline">Ver calificaciones</button>
-  <button class="pill-tab outline">Inscripción a carrera</button>
-</div>
-
-<div class="grid-2">
-  <!-- TABLA DE CURSADA ACTUAL -->
-  <div class="card">
-    <div class="card-header">
-      <h3>Cursada Actual - Tecnicatura en desarrollo web</h3>
-    </div>
-    <table>
-      <thead>
-        <tr>
-          <th>Materia</th>
-          <th>Comisión</th>
-          <th>Horario</th>
-          <th>Nota</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Visualización e Interfaces</td>
-          <td>01-1900</td>
-          <td>Jue 19 a 23hs</td>
-          <td><span class="status-badge status-ok">9 (Promoción)</span></td>
-        </tr>
-        <tr>
-          <td>Programación Web I</td>
-          <td>02-1900</td>
-          <td>Mar 19 a 23hs</td>
-          <td><span class="status-badge status-ok">8 (Promoción)</span></td>
-        </tr>
-        <tr>
-          <td>Base de Datos I</td>
-          <td>01-1900</td>
-          <td>Vie 19 a 23hs</td>
-          <td><span class="status-badge status-wait">En curso</span></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <!-- GRÁFICO COMPARATIVO (Requisito de la consigna) -->
-  <div class="card">
-    <div class="card-header">
-      <h3>📊 Gráfico Comparativo de Avance</h3>
-      <span style="font-size:0.85rem; color:var(--text-muted);">Promedio: 8.25</span>
-    </div>
-    <p style="font-size:0.88rem; color:var(--text-muted);">Comparativa de materias aprobadas por año respecto al plan de estudios:</p>
-    <div class="chart-bars">
-      <div class="bar-col">
-        <div class="bar-fill" style="height: 85%;">85%</div>
-        <span class="bar-label">1° Año</span>
-      </div>
-      <div class="bar-col">
-        <div class="bar-fill" style="height: 70%;">70%</div>
-        <span class="bar-label">2° Año</span>
-      </div>
-      <div class="bar-col">
-        <div class="bar-fill" style="height: 55%;">55%</div>
-        <span class="bar-label">3° Año</span>
-      </div>
-      <div class="bar-col">
-        <div class="bar-fill" style="height: 25%; background:#64748B;">25%</div>
-        <span class="bar-label">4° Año</span>
-      </div>
-    </div>
-  </div>
-</div>
-
-    </main>
-  </div>
-
-  <!-- CHATBOT FLOTANTE (WIREFRAME) -->
-<button class="chatbot-fab" onclick="toggleChat()" title="Asistente Virtual UNLaM">
-  <i class="fa-solid fa-robot"></i>
-</button>
-
-  <div class="chatbot-window" id="chatbotWindow">
-    <div class="chat-header">
-      <button onclick="toggleChat()" style="background:none;border:none;color:white;font-size:1.1rem;cursor:pointer;">✕</button>
-    </div>
-    <div class="chat-body" id="chatBody">
-      <div class="msg-bot">¡Hola! Soy el asistente de Intraconsulta. Consultame sobre inscripciones, pagos o reclamos.</div>
-    </div>
-    <div class="chat-footer">
-      <input type="text" id="chatInput" placeholder="Escribí tu duda..." onkeypress="if(event.key==='Enter') sendChat()">
-      <button class="btn-primary" style="padding: 6px 14px;" onclick="sendChat()">Enviar</button>
-    </div>
-  </div>
-
-  <!-- FOOTER -->
-  <footer class="main-footer">
-    Universidad Nacional de La Matanza • Sistema de Autogestión Estudiantil • <a href="error.html" style="text-decoration:underline;">Simular Alerta/Error</a>
-  </footer>
-
+<body data-page="academica" data-layout="app">
+<main class="main-content">
+  <h1 class="page-title">Info académica</h1>
+  <p class="page-sub">Consultá tu cursada, inscribite a finales y compará tu rendimiento.</p>
+  <div class="subnav-pills" data-tabs><button type="button" class="pill-tab active" data-tab="materias">Materias y horarios</button><button type="button" class="pill-tab" data-tab="inscripciones">Inscripciones</button><button type="button" class="pill-tab" data-tab="notas">Calificaciones</button><button type="button" class="pill-tab" data-tab="carrera">Mi carrera</button></div>
+  <section class="tab-panel" id="materias"><div class="card"><div class="card-header"><h2>Cursada del 2.º cuatrimestre 2026</h2></div><div class="table-wrap"><table>
+    <tr><th>Materia</th><th>Comisión</th><th>Días y horario</th><th>Aula</th></tr>
+    <tr><td>Programación Avanzada</td><td>3601</td><td>Lunes 18:00 a 22:00</td><td>Aula 204</td></tr>
+    <tr><td>Base de Datos</td><td>3602</td><td>Martes 18:00 a 22:00</td><td>Lab. 3</td></tr>
+    <tr><td>Visualización e Interfaces</td><td>3603</td><td>Jueves 18:00 a 22:00</td><td>Aula 110</td></tr>
+    <tr><td>Redes de Datos</td><td>3604</td><td>Viernes 18:00 a 22:00</td><td>Lab. 1</td></tr></table></div></div></section>
+  <section class="tab-panel" id="inscripciones">
+    <div class="alert alert-warning"><span data-ico="alert"></span><div><strong>La inscripción a finales cierra el 20/11</strong>Revisá tus correlativas antes de confirmar.</div></div>
+    <div class="card"><div class="card-header"><h2>Finales disponibles: llamado Diciembre</h2></div><div class="table-wrap"><table>
+    <tr><th>Materia</th><th>Fecha</th><th>Hora</th><th>Estado</th></tr>
+    <tr><td>Programación Avanzada</td><td>07/12/2026</td><td>18:00</td><td><button class="btn-primary btn-sm" data-enroll>Inscribirme</button></td></tr>
+    <tr><td>Base de Datos</td><td>09/12/2026</td><td>18:00</td><td><button class="btn-primary btn-sm" data-enroll>Inscribirme</button></td></tr>
+    <tr><td>Arquitectura de Software</td><td>11/12/2026</td><td>19:00</td><td><span class="status-badge status-err">Correlativa pendiente</span></td></tr></table></div></div></section>
+  <section class="tab-panel" id="notas"><div class="grid-2">
+    <div class="card"><div class="card-header"><h2>Mis calificaciones</h2></div><div class="table-wrap"><table>
+      <tr><th>Materia</th><th>Nota</th><th>Estado</th></tr>
+      <tr><td>Matemática Discreta</td><td>8</td><td><span class="status-badge status-ok">Aprobada</span></td></tr>
+      <tr><td>Programación Inicial</td><td>9</td><td><span class="status-badge status-ok">Aprobada</span></td></tr>
+      <tr><td>Estadística</td><td>5</td><td><span class="status-badge status-ok">Aprobada</span></td></tr>
+      <tr><td>Redes de Datos</td><td>-</td><td><span class="status-badge status-wait">Cursando</span></td></tr></table></div></div>
+    <div class="card"><div class="card-header"><h2>Mi promedio vs. el de la carrera</h2></div>
+      <div class="chart" role="img" aria-label="Gráfico comparativo de promedios por cuatrimestre">
+        <div class="chart-group"><div class="bars"><div class="bar" style="height:74%">7,4</div><div class="bar alt" style="height:65%">6,5</div></div></div>
+        <div class="chart-group"><div class="bars"><div class="bar" style="height:81%">8,1</div><div class="bar alt" style="height:68%">6,8</div></div></div>
+        <div class="chart-group"><div class="bars"><div class="bar" style="height:78%">7,8</div><div class="bar alt" style="height:70%">7,0</div></div></div></div>
+      <div class="chart-labels"><span>1.º cuat. 2025</span><span>2.º cuat. 2025</span><span>1.º cuat. 2026</span></div>
+      <div class="legend"><span><i style="background:var(--unlam-green)"></i>Mi promedio</span><span><i style="background:#94A3B8"></i>Promedio de la carrera</span></div></div></div></section>
+  <section class="tab-panel" id="carrera"><div class="card"><div class="card-header"><h2>Ingeniería en Informática</h2><span class="status-badge status-ok">Alumno regular</span></div>
+    <p>Materias aprobadas: <strong>18 de 40</strong>. Avance estimado: <strong>45%</strong>.</p>
+    <p style="margin-top:8px"><a class="btn-outline btn-sm" href="tramites.html#cambio">Solicitar cambio de carrera</a></p></div></section>
+</main>
   <script src="js/app.js"></script>
 </body>
 </html>

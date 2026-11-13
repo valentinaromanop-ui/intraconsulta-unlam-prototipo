@@ -3,88 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aviso del Sistema - Intraconsulta UNLaM</title>
+  <title>Algo salió mal - Intraconsulta UNLaM</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap">
   <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
-
-  <!-- BARRA SUPERIOR WIREFRAME -->
-  <header class="top-header">
-    <div class="header-left">
-     <a href="home.html" class="icon-btn" title="Inicio"> <img src="logo-unlam-bt.png" alt="icono-UNLAM"> </a>
-      <div class="search-bar">
-        <input type="text" placeholder="Buscar trámite, materia o certificado...">
-        <span>🔍</span>
-      </div>
-    </div>
-    <div class="header-right">
-      <a href="home.html#calendario" class="icon-btn" title="Calendario Académico">📅</a>
-      <a href="ayuda.html" class="icon-btn badge-notif" title="Notificaciones">🔔</a>
-      <a href="index.html" class="icon-btn" title="Perfil / Cerrar Sesión">👤</a>
-    </div>
-  </header>
-
-  <div class="app-layout">
-    <!-- FRANJA VERDE LATERAL "MENÚ" (WIREFRAME) -->
-    <aside class="sidebar-rail" onclick="toggleMenu()" title="Abrir menú principal">
-      <div class="rail-hamburger">☰</div>
-      <div class="rail-text">MENÚ</div>
-    </aside>
-
-    <!-- MENÚ DESPLEGABLE CON LAS 4 OPCIONES PRINCIPALES -->
-    <nav class="sidebar-drawer" id="sidebarDrawer">
-      <div class="drawer-title">Navegación Principal</div>
-      <a href="academica.html" class="menu-pill-btn ">📚 Info académica</a>
-      <a href="tramites.html" class="menu-pill-btn ">📝 Trámites y reclamos</a>
-      <a href="pagos.html" class="menu-pill-btn ">💳 Pagos</a>
-      <a href="ayuda.html" class="menu-pill-btn ">💬 Ayuda y contacto</a>
-      <hr style="border: 0; border-top: 1px solid #E2E8F0; margin: 8px 0;">
-      <a href="home.html" class="menu-pill-btn ">🏠 Panel Principal</a>
-    </nav>
-
-    <!-- CONTENIDO DE LA PANTALLA -->
-    <main class="main-content">
-      
-<div class="card" style="max-width: 620px; margin: 30px auto; text-align: center; border-top: 6px solid var(--warning); padding: 36px;">
-  <div style="font-size: 3.5rem; margin-bottom: 12px;">⚠️</div>
-  <h1 style="font-size: 1.6rem; margin-bottom: 10px;">Esta gestión no se encuentra habilitada hoy</h1>
-  <p style="color: var(--text-muted); font-size: 1rem; line-height: 1.5; margin-bottom: 22px;">
-    En lugar de mostrarte un error técnico, te avisamos que el período para <strong>Recuperación de Clave / Inscripción Fuera de Término</strong> abre el próximo <strong>02/07/2026</strong> según el calendario académico.
-  </p>
-  <div style="background: var(--warning-bg); color: #92400E; padding: 12px; border-radius: 8px; font-size: 0.9rem; margin-bottom: 24px;">
-    <strong>¿Qué podés hacer ahora?</strong> Revisar las fechas en el calendario o iniciar un ticket de consulta con Dirección de Alumnos.
+<body data-page="error" data-layout="app">
+<main class="auth-wrapper">
+  <div class="auth-card">
+    <div class="error-code">404</div>
+    <h1 style="margin-top:10px">No encontramos esta página</h1>
+    <p class="subtitle" id="errQuery" style="margin-bottom:8px">El enlace puede estar roto o la página ya no existe.</p>
+    <p class="subtitle">Volvé al panel principal o probá buscar con otras palabras, por ejemplo "beca" o "certificado".</p>
+    <div class="error-actions"><a class="btn-primary" href="home.html" style="width:auto">Ir al panel principal</a><a class="btn-outline" href="ayuda.html">Pedir ayuda</a></div>
   </div>
-  <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
-    <a href="home.html" class="btn-primary">Volver al Panel Principal</a>
-    <a href="ayuda.html" class="pill-tab outline">Generar un Ticket</a>
-  </div>
-</div>
-
-    </main>
-  </div>
-
-  <!-- CHATBOT FLOTANTE (WIREFRAME) -->
-  <button class="chatbot-fab" onclick="toggleChat()" title="Asistente Virtual UNLaM">🤖</button>
-
-  <div class="chatbot-window" id="chatbotWindow">
-    <div class="chat-header">
-      <span>🤖 Asistente Virtual UNLaM</span>
-      <button onclick="toggleChat()" style="background:none;border:none;color:white;font-size:1.1rem;cursor:pointer;">✕</button>
-    </div>
-    <div class="chat-body" id="chatBody">
-      <div class="msg-bot">¡Hola! Soy el asistente de Intraconsulta. Consultame sobre inscripciones, pagos o reclamos.</div>
-    </div>
-    <div class="chat-footer">
-      <input type="text" id="chatInput" placeholder="Escribí tu duda..." onkeypress="if(event.key==='Enter') sendChat()">
-      <button class="btn-primary" style="padding: 6px 14px;" onclick="sendChat()">Enviar</button>
-    </div>
-  </div>
-
-  <!-- FOOTER -->
-  <footer class="main-footer">
-    Universidad Nacional de La Matanza • Sistema de Autogestión Estudiantil • <a href="error.html" style="text-decoration:underline;">Simular Alerta/Error</a>
-  </footer>
-
+</main>
   <script src="js/app.js"></script>
 </body>
 </html>

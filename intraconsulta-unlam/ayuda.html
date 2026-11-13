@@ -3,150 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ayuda y Contacto - Intraconsulta UNLaM</title>
+  <title>Ayuda y contacto - Intraconsulta UNLaM</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap">
   <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
-
-  <!-- BARRA SUPERIOR WIREFRAME -->
-  <header class="top-header">
-    <div class="header-left">
-      <a href="home.html" class="icon-btn" title="Inicio"> <img src="logo-unlam-bt.png" alt="icono-UNLAM"> </a>
-      <div class="search-bar">
-        <input type="text" placeholder="Buscar trámite, materia o certificado...">
-        <span>🔍</span>
-      </div>
-    </div>
-    <div class="header-right">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-<a href="calendario.html" class="icon-btn" title="Calendario Académico">
-  <i class="fa-solid fa-calendar-days"></i>
-</a>
-
-
-<!-- Botón de Notificaciones -->
-<a href="ayuda.html" class="icon-btn badge-notif" title="Notificaciones">
-  <i class="fa-solid fa-bell"></i>
-</a>
-
-<!-- Botón de Perfil / Cerrar Sesión -->
-<a href="index.html" class="icon-btn" title="Perfil / Cerrar Sesión">
-  <i class="fa-solid fa-user"></i>
-</a>
-    </div>
-  </header>
-
-  <div class="app-layout">
-    <!-- FRANJA VERDE LATERAL "MENÚ" (WIREFRAME) -->
-    <aside class="sidebar-rail" onclick="toggleMenu()" title="Abrir menú principal">
-      <div class="rail-hamburger">☰</div>
-      <div class="rail-text">MENÚ</div>
-    </aside>
-
-    <!-- MENÚ DESPLEGABLE CON LAS 4 OPCIONES PRINCIPALES -->
-      <nav class="sidebar-drawer" id="sidebarDrawer">
-  <div class="drawer-title">Navegación Principal</div>
-  <a href="academica.html" class="menu-pill-btn">
-    <i class="fa-solid fa-graduation-cap"></i> Info académica
-  </a>
-  <a href="tramites.html" class="menu-pill-btn">
-    <i class="fa-solid fa-file-lines"></i> Trámites y reclamos
-  </a>
-  <a href="pagos.html" class="menu-pill-btn">
-    <i class="fa-solid fa-credit-card"></i> Pagos
-  </a>
-  <a href="ayuda.html" class="menu-pill-btn">
-    <i class="fa-solid fa-circle-question"></i> Ayuda y contacto
-  </a>
-  <hr style="border: 0; border-top: 1px solid #E2E8F0; margin: 8px 0;">
-  <a href="home.html" class="menu-pill-btn active">
-    <i class="fa-solid fa-house"></i> Panel Principal
-  </a>
-</nav>
-
-    <!-- CONTENIDO DE LA PANTALLA -->
-    <main class="main-content">
-      
-<h1 class="page-title">Ayuda y contacto</h1>
-
-<!-- PÍLDORAS SUPERIORES WIREFRAME -->
-<div class="subnav-pills">
-  <button class="pill-tab">Preguntas frecuentes (FAQ)</button>
-  <button class="pill-tab outline">Generar Ticket de Soporte</button>
-  <button class="pill-tab outline" onclick="toggleChat()">Abrir Asistente Virtual</button>
-  <button class="pill-tab outline">Centro de Notificaciones</button>
-</div>
-
-<div class="grid-2">
-  <div class="card">
-    <div class="card-header">
-      <h3>🔔 Centro de Notificaciones en Tiempo Real</h3>
-    </div>
-    <div style="display:flex; flex-direction:column; gap:12px;">
-      <div style="padding:12px; background:var(--unlam-green-light); border-left:4px solid var(--unlam-green); border-radius:6px;">
-        <strong>Nueva calificación cargada</strong>
-        <p style="font-size:0.85rem; margin-top:4px;">Se registró tu nota (9) en Visualización e Interfaces.</p>
-      </div>
-      <div style="padding:12px; background:#F8FAFC; border-left:4px solid #64748B; border-radius:6px;">
-        <strong>Ticket #3891 Resuelto</strong>
-        <p style="font-size:0.85rem; margin-top:4px;">El departamento de alumnos aprobó tu certificado.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-header">
-      <h3>🎫 Nuevo Ticket de Atención</h3>
-    </div>
-    <p style="font-size:0.88rem; color:var(--text-muted); margin-bottom:14px;">Elegí si querés ser atendido por el asistente automático o derivar tu consulta a un operador del departamento.</p>
-    <form onsubmit="event.preventDefault(); alert('Ticket enviado al Departamento de Ingeniería.');">
-      <div class="form-group">
-        <label>Departamento destinatario</label>
-        <select class="form-control">
-          <option>Departamento de Ingeniería e Investigaciones Tecnológicas (DIIT)</option>
-          <option>Dirección de Alumnos</option>
-          <option>Tesorería y Pagos</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label>Consulta</label>
-        <textarea class="form-control" rows="3" placeholder="Escribí tu mensaje..." required></textarea>
-      </div>
-      <button type="submit" class="btn-primary">Crear Ticket</button>
-    </form>
-  </div>
-</div>
-
-    </main>
-  </div>
-
-  <!-- CHATBOT FLOTANTE (WIREFRAME) -->
-  <button class="chatbot-fab" onclick="toggleChat()" title="Asistente Virtual UNLaM">
-  <i class="fa-solid fa-robot"></i>
-</button>
-
-  <div class="chatbot-window" id="chatbotWindow">
-    <div class="chat-header">
-     <button class="chatbot-fab" onclick="toggleChat()" title="Asistente Virtual UNLaM">
-  <i class="fa-solid fa-robot"></i>
-</button>
-      <button onclick="toggleChat()" style="background:none;border:none;color:white;font-size:1.1rem;cursor:pointer;">✕</button>
-    </div>
-    <div class="chat-body" id="chatBody">
-      <div class="msg-bot">¡Hola! Soy el asistente de Intraconsulta. Consultame sobre inscripciones, pagos o reclamos.</div>
-    </div>
-    <div class="chat-footer">
-      <input type="text" id="chatInput" placeholder="Escribí tu duda..." onkeypress="if(event.key==='Enter') sendChat()">
-      <button class="btn-primary" style="padding: 6px 14px;" onclick="sendChat()">Enviar</button>
-    </div>
-  </div>
-
-  <!-- FOOTER -->
-  <footer class="main-footer">
-    Universidad Nacional de La Matanza • Sistema de Autogestión Estudiantil • <a href="error.html" style="text-decoration:underline;">Simular Alerta/Error</a>
-  </footer>
-
+<body data-page="ayuda" data-layout="app">
+<main class="main-content">
+  <h1 class="page-title">Ayuda y contacto</h1>
+  <p class="page-sub">Resolvé tus dudas sin salir de Intraconsulta.</p>
+  <div class="subnav-pills" data-tabs><button type="button" class="pill-tab active" data-tab="faq">Preguntas frecuentes</button><button type="button" class="pill-tab" data-tab="chat">Asistente virtual</button><button type="button" class="pill-tab" data-tab="ticket">Generar ticket</button><button type="button" class="pill-tab" data-tab="tickets">Mis tickets</button></div>
+  <section class="tab-panel" id="faq">
+    <details open><summary>¿Cómo me inscribo a un final?</summary><p>Entrá a Info académica, abrí Inscripciones y elegí el final. Tiene que estar abierto el período y tener las correlativas aprobadas.</p></details>
+    <details><summary>¿Cómo pago el curso de ingreso?</summary><p>Desde Pagos elegí el concepto y pagá con Mercado Pago. El comprobante queda en la pestaña Comprobantes.</p></details>
+    <details><summary>¿Cuánto tarda un certificado?</summary><p>Los certificados digitales se generan en 48 horas hábiles y te avisamos por notificación.</p></details>
+    <details><summary>Olvidé mi contraseña, ¿qué hago?</summary><p>En la pantalla de inicio de sesión tocá "¿Olvidaste tu contraseña?" y seguí los pasos.</p></details></section>
+  <section class="tab-panel" id="chat"><div class="card"><div class="card-header"><h2>Asistente virtual</h2></div><p style="margin-bottom:14px">Respondemos consultas frecuentes al instante. Si no alcanza, podés pasar a una persona.</p>
+    <button class="btn-primary" data-open-chat type="button">Abrir chat</button> <a class="btn-outline" href="#ticket" onclick="location.hash='ticket';location.reload()">Hablar con una persona</a></div></section>
+  <section class="tab-panel" id="ticket"><form class="card" data-demo="Ticket #1043 creado. Te avisamos cuando respondan."><div class="card-header"><h2>Nuevo ticket de soporte</h2></div>
+    <div class="form-row"><div class="form-group"><label for="ta">Área</label><select class="form-control" id="ta"><option>Alumnos</option><option>Pagos</option><option>Sistemas</option></select></div>
+    <div class="form-group"><label>Cómo querés que te atiendan</label><div class="radio-row"><label><input type="radio" name="canal" checked> Una persona</label><label><input type="radio" name="canal"> Asistente virtual</label></div></div></div>
+    <div class="form-group"><label for="ts">Asunto</label><input class="form-control" id="ts" required></div>
+    <div class="form-group"><label for="tm">Mensaje</label><textarea class="form-control" id="tm" required></textarea></div>
+    <button class="btn-primary" type="submit">Enviar ticket</button></form></section>
+  <section class="tab-panel" id="tickets"><div class="card"><div class="card-header"><h2>Mis tickets</h2></div><div class="table-wrap"><table>
+    <tr><th>N.º</th><th>Asunto</th><th>Canal</th><th>Estado</th></tr>
+    <tr><td>#1042</td><td>No veo mi nota de Estadística</td><td>Persona</td><td><span class="status-badge status-ok">Respondido</span></td></tr>
+    <tr><td>#1039</td><td>Error al pagar con tarjeta</td><td>Asistente</td><td><span class="status-badge status-wait">En proceso</span></td></tr></table></div></div></section>
+</main>
   <script src="js/app.js"></script>
 </body>
 </html>

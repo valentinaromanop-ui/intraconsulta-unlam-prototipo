@@ -4,43 +4,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Registro - Intraconsulta UNLaM</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap">
   <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
-
-  <header class="top-header">
-    <div class="header-left"> <a href="home.html" class="icon-btn" title="Inicio"> <img src="logo-unlam-bt.png" alt="icono-UNLAM"> </a>
-      <strong>UNLaM | Registro de Alumno</strong>
-    </div>
-    <div class="header-right">
-      <span class="icon-btn">📅</span>
-      <span class="icon-btn">👤</span>
-    </div>
-  </header>
-
-  <main class="auth-wrapper">
-    <div class="auth-card">
-      <h1>REGISTRO</h1>
-      <p class="subtitle">Completá tus datos para activar tu autogestión</p>
-
-      <form action="home.html">
-        <input type="text" class="pill-input" placeholder="Nombre y Apellido" required>
-        <input type="number" class="pill-input" placeholder="Número de DNI" required>
-        <input type="email" class="pill-input" placeholder="Correo electrónico institucional o personal" required>
-        <input type="password" class="pill-input" placeholder="Crear contraseña" required>
-        <input type="password" class="pill-input" placeholder="Repetir contraseña" required>
-        <button type="submit" class="btn-primary" style="width: 100%; margin-top: 8px;">Crear Cuenta</button>
-      </form>
-
-      <div class="auth-links">
-        <a href="index.html">Ya tengo usuario • Volver a Iniciar Sesión</a>
-      </div>
-    </div>
-  </main>
-
-  <footer class="main-footer">
-    Universidad Nacional de La Matanza • Florencio Varela 1903, San Justo • Soporte Técnico
-  </footer>
-
+<body data-page="registro" data-layout="auth">
+<main class="auth-wrapper">
+  <div class="auth-card">
+    <h1>Crear cuenta</h1>
+    <p class="subtitle">Completá tus datos para activar tu usuario</p>
+    <form data-demo="Cuenta creada. Ya podés iniciar sesión." data-redirect="index.html">
+      <div class="form-group"><label for="n">Nombre y apellido</label><input class="form-control" id="n" required autocomplete="name"></div>
+      <div class="form-group"><label for="d">DNI</label><input class="form-control" id="d" required inputmode="numeric" pattern="[0-9]{7,8}" title="Ingresá 7 u 8 números"></div>
+      <div class="form-group"><label for="e">Correo electrónico</label><input class="form-control" id="e" type="email" required autocomplete="email"></div>
+      <div class="form-group"><label for="c">Contraseña</label><input class="form-control" id="c" type="password" minlength="8" required autocomplete="new-password"><p class="hint">Mínimo 8 caracteres.</p></div>
+      <button class="btn-primary" type="submit">Registrarme</button>
+    </form>
+    <div class="auth-links"><a href="index.html">¿Ya tenés cuenta? Iniciá sesión</a></div>
+  </div>
+</main>
+  <script src="js/app.js"></script>
 </body>
 </html>

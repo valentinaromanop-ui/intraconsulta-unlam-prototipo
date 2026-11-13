@@ -4,147 +4,32 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pagos - Intraconsulta UNLaM</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap">
   <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
-
-  <!-- BARRA SUPERIOR WIREFRAME -->
-  <header class="top-header">
-    <div class="header-left">
-   <a href="home.html" class="icon-btn" title="Inicio"> <img src="logo-unlam-bt.png" alt="icono-UNLAM"> </a>
-      <div class="search-bar">
-        <input type="text" placeholder="Buscar trámite, materia o certificado...">
-        <span>🔍</span>
-      </div>
-    </div>
-    <div class="header-right">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-<a href="calendario.html" class="icon-btn" title="Calendario Académico">
-  <i class="fa-solid fa-calendar-days"></i>
-</a>
-
-
-<!-- Botón de Notificaciones -->
-<a href="ayuda.html" class="icon-btn badge-notif" title="Notificaciones">
-  <i class="fa-solid fa-bell"></i>
-</a>
-
-<!-- Botón de Perfil / Cerrar Sesión -->
-<a href="index.html" class="icon-btn" title="Perfil / Cerrar Sesión">
-  <i class="fa-solid fa-user"></i>
-</a>
-    </div>
-  </header>
-
-  <div class="app-layout">
-    <!-- FRANJA VERDE LATERAL "MENÚ" (WIREFRAME) -->
-    <aside class="sidebar-rail" onclick="toggleMenu()" title="Abrir menú principal">
-      <div class="rail-hamburger">☰</div>
-      <div class="rail-text">MENÚ</div>
-    </aside>
-
-    <!-- MENÚ DESPLEGABLE CON LAS 4 OPCIONES PRINCIPALES -->
-    <nav class="sidebar-drawer" id="sidebarDrawer">
-  <div class="drawer-title">Navegación Principal</div>
-  <a href="academica.html" class="menu-pill-btn">
-    <i class="fa-solid fa-graduation-cap"></i> Info académica
-  </a>
-  <a href="tramites.html" class="menu-pill-btn">
-    <i class="fa-solid fa-file-lines"></i> Trámites y reclamos
-  </a>
-  <a href="pagos.html" class="menu-pill-btn">
-    <i class="fa-solid fa-credit-card"></i> Pagos
-  </a>
-  <a href="ayuda.html" class="menu-pill-btn">
-    <i class="fa-solid fa-circle-question"></i> Ayuda y contacto
-  </a>
-  <hr style="border: 0; border-top: 1px solid #E2E8F0; margin: 8px 0;">
-  <a href="home.html" class="menu-pill-btn active">
-    <i class="fa-solid fa-house"></i> Panel Principal
-  </a>
-</nav>
-
-    <!-- CONTENIDO DE LA PANTALLA -->
-    <main class="main-content">
-      
-<h1 class="page-title">Pagos</h1>
-
-<!-- PÍLDORAS SUPERIORES WIREFRAME -->
-<div class="subnav-pills">
-  <button class="pill-tab">Seleccionar curso / verano</button>
-  <button class="pill-tab outline">Pagar con Mercado Pago</button>
-  <button class="pill-tab outline">Consultar comprobantes</button>
-  <button class="pill-tab outline">Estado de cuenta</button>
-</div>
-
-<div class="grid-2">
-  <div class="card">
-    <div class="card-header">
-      <h3>Aranceles Pendientes de Pago</h3>
-    </div>
-    <div style="padding:16px; border:1px solid var(--border-color); border-radius:8px; margin-bottom:16px;">
-      <div style="display:flex; justify-content:space-between; margin-bottom:8px;">
-        <strong>Curso de Verano - Taller de Diseño</strong>
-        <strong style="color:var(--unlam-green); font-size:1.1rem;">$ 15.000</strong>
-      </div>
-      <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:14px;">Vencimiento: 30/06/2026 • Liquidación #9921</p>
-      <button class="btn-primary" style="background:#009EE3;" onclick="alert('Redirigiendo a pasarela segura de Mercado Pago...')">💳 Pagar con Mercado Pago</button>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-header">
-      <h3>Historial y Comprobantes</h3>
-    </div>
-    <table>
-      <thead>
-        <tr>
-          <th>Fecha</th>
-          <th>Concepto</th>
-          <th>Monto</th>
-          <th>Comprobante</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>12/03/2026</td>
-          <td>Libreta Universitaria</td>
-          <td>$ 4.500</td>
-          <td><a href="#" style="color:var(--unlam-green); font-weight:bold;">⬇ PDF</a></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</div>
-
-    </main>
-  </div>
-
-  <!-- CHATBOT FLOTANTE (WIREFRAME) -->
-  <<button class="chatbot-fab" onclick="toggleChat()" title="Asistente Virtual UNLaM">
-  <i class="fa-solid fa-robot"></i>
-</button>
-
-  <div class="chatbot-window" id="chatbotWindow">
-    <div class="chat-header">
-      <span>🤖 Asistente Virtual UNLaM</span>
-      <button onclick="toggleChat()" style="background:none;border:none;color:white;font-size:1.1rem;cursor:pointer;">✕</button>
-    </div>
-    <div class="chat-body" id="chatBody">
-      <div class="msg-bot">¡Hola! Soy el asistente de Intraconsulta. Consultame sobre inscripciones, pagos o reclamos.</div>
-    </div>
-    <div class="chat-footer">
-      <input type="text" id="chatInput" placeholder="Escribí tu duda..." onkeypress="if(event.key==='Enter') sendChat()">
-      <button class="btn-primary" style="padding: 6px 14px;" onclick="sendChat()">Enviar</button>
-    </div>
-  </div>
-
-  <!-- FOOTER -->
-  <footer class="main-footer">
-    Universidad Nacional de La Matanza • Sistema de Autogestión Estudiantil • <a href="error.html" style="text-decoration:underline;">Simular Alerta/Error</a>
-  </footer>
-
+<body data-page="pagos" data-layout="app">
+<main class="main-content">
+  <h1 class="page-title">Pagos</h1>
+  <p class="page-sub">Abonás con Mercado Pago o tarjeta y el comprobante queda guardado acá.</p>
+  <div class="alert alert-warning"><span data-ico="alert"></span><div><strong>Curso de ingreso 2027: vence el 20/11</strong>Pagá antes de esa fecha para asegurar tu vacante.</div></div>
+  <div class="subnav-pills" data-tabs><button type="button" class="pill-tab active" data-tab="pagar">Pagar</button><button type="button" class="pill-tab" data-tab="comprobantes">Comprobantes</button><button type="button" class="pill-tab" data-tab="estado">Estado de pagos</button></div>
+  <section class="tab-panel" id="pagar"><div class="grid-2">
+    <div class="card"><div class="card-header"><h2>Elegí qué querés pagar</h2></div><div class="form-group"><label for="concepto">Concepto</label>
+      <select class="form-control" id="concepto"><option data-price="35000">Curso de ingreso 2027</option><option data-price="28000">Materia de verano: Programación Avanzada</option><option data-price="28000">Materia de verano: Base de Datos</option></select></div>
+      <p class="hint">Si tenés beca aprobada, el descuento se aplica automáticamente.</p></div>
+    <div class="card"><div class="card-header"><h2>Resumen</h2></div><p>Total a pagar</p><p style="font-family:Poppins,sans-serif;font-size:2rem;font-weight:700;color:var(--unlam-green);margin-bottom:16px" id="monto"></p>
+      <button class="btn-mp" id="payBtn" type="button">Pagar con Mercado Pago</button><p class="hint" style="margin-top:10px">Pago seguro. Aceptamos tarjetas de crédito y débito.</p></div></div></section>
+  <section class="tab-panel" id="comprobantes"><div class="card"><div class="card-header"><h2>Mis comprobantes</h2></div><div class="table-wrap"><table>
+    <tr><th>N.º</th><th>Concepto</th><th>Fecha</th><th>Monto</th><th></th></tr>
+    <tr><td>0001-3341</td><td>Materia de verano 2026</td><td>12/02/2026</td><td>$ 26.000</td><td><button class="btn-outline btn-sm" onclick="document.dispatchEvent(new Event('x'))">Descargar</button></td></tr>
+    <tr><td>0001-2987</td><td>Curso de ingreso 2026</td><td>20/11/2025</td><td>$ 32.000</td><td><button class="btn-outline btn-sm">Descargar</button></td></tr></table></div></div></section>
+  <section class="tab-panel" id="estado"><div class="card"><div class="card-header"><h2>Estado de mis pagos</h2></div><div class="table-wrap"><table>
+    <tr><th>Concepto</th><th>Vencimiento</th><th>Estado</th></tr>
+    <tr><td>Curso de ingreso 2027</td><td>20/11/2026</td><td><span class="status-badge status-wait">Pendiente</span></td></tr>
+    <tr><td>Materia de verano 2026</td><td>15/02/2026</td><td><span class="status-badge status-ok">Acreditado</span></td></tr></table></div></div></section>
+</main>
   <script src="js/app.js"></script>
 </body>
 </html>

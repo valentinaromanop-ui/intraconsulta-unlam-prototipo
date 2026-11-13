@@ -3,156 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Calendario Interactivo - Intraconsulta UNLaM</title>
+  <title>Calendario - Intraconsulta UNLaM</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap">
   <link rel="stylesheet" href="css/styles.css">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body>
-
-  <!-- BARRA SUPERIOR -->
-   <header class="top-header">
-    <div class="header-left">
-       <a href="home.html" class="icon-btn" title="Inicio"> <img src="logo-unlam-bt.png" alt="icono-UNLAM"> </a>
-      <div class="search-bar">
-        <input type="text" placeholder="Buscar trámite, materia o certificado...">
-        <span>🔍</span>
-      </div>
-    </div>
-    <div class="header-right">
-
-
-<a href="calendario.html" class="icon-btn" title="Calendario Académico">
-  <i class="fa-solid fa-calendar-days"></i>
-</a>
-
-
-<!-- Botón de Notificaciones -->
-<a href="ayuda.html" class="icon-btn badge-notif" title="Notificaciones">
-  <i class="fa-solid fa-bell"></i>
-</a>
-
-<!-- Botón de Perfil / Cerrar Sesión -->
-<a href="index.html" class="icon-btn" title="Perfil / Cerrar Sesión">
-  <i class="fa-solid fa-user"></i>
-</a>
-    </div>
-  </header>
-
-  <div class="app-layout">
-    <!-- FRANJA VERDE LATERAL "MENÚ" -->
-    <aside class="sidebar-rail" onclick="toggleMenu()" title="Abrir menú principal">
-      <div class="rail-hamburger">☰</div>
-      <div class="rail-text">MENÚ</div>
+<body data-page="calendario" data-layout="app">
+<main class="main-content">
+  <h1 class="page-title">Calendario académico</h1>
+  <p class="page-sub">Fechas clave de UNLaM, feriados y tus recordatorios.</p>
+  <div class="cal-layout">
+    <section class="card">
+      <div class="cal-nav"><button class="btn-outline btn-sm" id="calPrev" aria-label="Mes anterior">&#8249;</button><h2 id="calTitle"></h2><button class="btn-outline btn-sm" id="calNext" aria-label="Mes siguiente">&#8250;</button></div>
+      <div class="cal-grid" id="calGrid"></div>
+      <div class="cal-legend"><span><i class="legend-dot" style="background:#16A34A"></i>UNLaM</span><span><i class="legend-dot" style="background:#DC2626"></i>Feriado</span><span><i class="legend-dot" style="background:#2563EB"></i>Personal</span></div>
+    </section>
+    <aside>
+      <div class="card"><div class="card-header"><h2>Detalle del día</h2><button class="btn-outline btn-sm" id="calToday">Hoy</button></div><div id="dayDetail"></div></div>
+      <form class="card" id="evForm"><div class="card-header"><h2>Agregar recordatorio</h2></div>
+        <div class="form-group"><label for="evDate">Fecha</label><input class="form-control" id="evDate" type="date" required></div>
+        <div class="form-group"><label for="evText">Descripción</label><input class="form-control" id="evText" maxlength="40" required></div>
+        <button class="btn-primary" type="submit">Agregar</button></form>
     </aside>
-
-    <!-- MENÚ DESPLEGABLE CON LAS 4 OPCIONES -->
-   <nav class="sidebar-drawer" id="sidebarDrawer">
-  <div class="drawer-title">Navegación Principal</div>
-  <a href="academica.html" class="menu-pill-btn">
-    <i class="fa-solid fa-graduation-cap"></i> Info académica
-  </a>
-  <a href="tramites.html" class="menu-pill-btn">
-    <i class="fa-solid fa-file-lines"></i> Trámites y reclamos
-  </a>
-  <a href="pagos.html" class="menu-pill-btn">
-    <i class="fa-solid fa-credit-card"></i> Pagos
-  </a>
-  <a href="ayuda.html" class="menu-pill-btn">
-    <i class="fa-solid fa-circle-question"></i> Ayuda y contacto
-  </a>
-  <hr style="border: 0; border-top: 1px solid #E2E8F0; margin: 8px 0;">
-  <a href="home.html" class="menu-pill-btn active">
-    <i class="fa-solid fa-house"></i> Panel Principal
-  </a>
-</nav>
-
-    <!-- CONTENIDO DEL CALENDARIO -->
-    <main class="main-content">
-      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; margin-bottom:18px;">
-        <h1 class="page-title" style="margin-bottom:0;">📅 Mi Calendario Académico</h1>
-        <a href="https://www.unlam.edu.ar/inicio/calendario-academico/" target="_blank" class="status-badge status-ok">Calendario Oficial UNLaM ↗</a>
-      </div>
-
-      <div class="cal-layout">
-        <!-- COLUMNA IZQUIERDA: CUADRÍCULA MENSUAL -->
-        <div class="card">
-          <div class="cal-nav">
-            <button class="pill-tab outline" style="padding: 7px 16px;" onclick="cambiarMes(-1)">◀ Mes Anterior</button>
-            <h2 id="mesAnioTitulo" style="font-size:1.3rem; text-transform:capitalize; ">Noviembre 2026</h2>
-            <button class="pill-tab outline" style="padding: 7px 16px;" onclick="cambiarMes(1)">Mes Siguiente ▶</button>
-          </div>
-
-          <div class="cal-grid">
-            <div class="cal-weekday">Lun</div>
-            <div class="cal-weekday">Mar</div>
-            <div class="cal-weekday">Mié</div>
-            <div class="cal-weekday">Jue</div>
-            <div class="cal-weekday">Vie</div>
-            <div class="cal-weekday">Sáb</div>
-            <div class="cal-weekday">Dom</div>
-          </div>
-
-          <div class="cal-grid" id="diasGrid"></div>
-
-          <div class="cal-legend">
-            <span><i class="legend-dot" style="background:#16A34A;"></i>Fecha Oficial UNLaM</span>
-            <span><i class="legend-dot" style="background:#DC2626;"></i>Feriado Nacional</span>
-            <span><i class="legend-dot" style="background:#2563EB;"></i>Mis Recordatorios / Exámenes</span>
-          </div>
-        </div>
-
-        <!-- COLUMNA DERECHA: DETALLE DEL DÍA Y AGREGAR EVENTO -->
-        <div class="card">
-          <div class="card-header">
-            <h3 id="fechaSeleccionadaTitulo">Eventos del 13/11/2026</h3>
-          </div>
-
-          <div id="listaEventosDia" style="display:flex; flex-direction:column; gap:10px; margin-bottom:20px;"></div>
-
-          <hr style="border:0; border-top:1px solid var(--border-color); margin: 16px 0;">
-
-          <h4 style="margin-bottom:10px; font-size:0.95rem;">➕ Agregar recordatorio o examen</h4>
-          <form onsubmit="agregarEventoPersonal(event)">
-            <div class="form-group">
-              <label>Título del evento</label>
-              <input type="text" id="nuevoEventoTitulo" class="form-control" placeholder="Ej: 2° Parcial Base de Datos" required>
-            </div>
-            <div class="form-group">
-              <label>Categoría</label>
-              <select id="nuevoEventoTipo" class="form-control">
-                <option value="personal">Examen / Entrega Personal</option>
-                <option value="unlam">Recordatorio Facultad</option>
-              </select>
-            </div>
-            <button type="submit" class="btn-primary" style="width:100%;">Guardar en mi calendario</button>
-          </form>
-        </div>
-      </div>
-    </main>
   </div>
-
-  <!-- CHATBOT FLOTANTE -->
-<button class="chatbot-fab" onclick="toggleChat()" title="Asistente Virtual UNLaM">
-  <i class="fa-solid fa-robot"></i>
-</button>
-  <div class="chatbot-window" id="chatbotWindow">
-    <div class="chat-header">
-      <span>🤖 Asistente Virtual UNLaM</span>
-      <button onclick="toggleChat()" style="background:none;border:none;color:white;font-size:1.1rem;cursor:pointer;">✕</button>
-    </div>
-    <div class="chat-body" id="chatBody">
-      <div class="msg-bot">¡Hola! Seleccioná cualquier día en el calendario para ver fechas oficiales de la UNLaM, feriados o agendar tus parciales.</div>
-    </div>
-    <div class="chat-footer">
-      <input type="text" id="chatInput" placeholder="Escribí tu duda..." onkeypress="if(event.key==='Enter') sendChat()">
-      <button class="btn-primary" style="padding: 6px 14px;" onclick="sendChat()">Enviar</button>
-    </div>
-  </div>
-
-  <footer class="main-footer">
-    Universidad Nacional de La Matanza • Sistema de Autogestión Estudiantil • <a href="error.html" style="text-decoration:underline;">Simular Alerta/Error</a>
-  </footer>
-
+</main>
   <script src="js/app.js"></script>
 </body>
 </html>

@@ -3,191 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Panel Principal - Intraconsulta UNLaM</title>
+  <title>Panel principal - Intraconsulta UNLaM</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap">
   <link rel="stylesheet" href="css/styles.css">
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body>
-
-  <!-- BARRA SUPERIOR WIREFRAME -->
-  <header class="top-header">
-    <div class="header-left">
-      <a href="home.html" class="icon-btn" title="Inicio"> <img src="logo-unlam-bt.png" alt="icono-UNLAM"> </a>
-      <div class="search-bar">
-        <input type="text" placeholder="Buscar trámite, materia o certificado...">
-        <span>🔍</span>
-      </div>
-    </div>
-    <div class="header-right">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-<a href="calendario.html" class="icon-btn" title="Calendario Académico">
-  <i class="fa-solid fa-calendar-days"></i>
-</a>
-
-
-<!-- Botón de Notificaciones -->
-<a href="ayuda.html" class="icon-btn badge-notif" title="Notificaciones">
-  <i class="fa-solid fa-bell"></i>
-</a>
-
-<!-- Botón de Perfil / Cerrar Sesión -->
-<a href="index.html" class="icon-btn" title="Perfil / Cerrar Sesión">
-  <i class="fa-solid fa-user"></i>
-</a>
-    </div>
-  </header>
-
-  <div class="app-layout">
-    <!-- FRANJA VERDE LATERAL "MENÚ" (WIREFRAME) -->
-    <aside class="sidebar-rail" onclick="toggleMenu()" title="Abrir menú principal">
-      <div class="rail-hamburger">☰</div>
-      <div class="rail-text">MENÚ</div>
-    </aside>
-
-    <!-- MENÚ DESPLEGABLE CON LAS 4 OPCIONES PRINCIPALES -->
-   <nav class="sidebar-drawer" id="sidebarDrawer">
-  <div class="drawer-title">Navegación Principal</div>
-  <a href="academica.html" class="menu-pill-btn">
-    <i class="fa-solid fa-graduation-cap"></i> Info académica
-  </a>
-  <a href="tramites.html" class="menu-pill-btn">
-    <i class="fa-solid fa-file-lines"></i> Trámites y reclamos
-  </a>
-  <a href="pagos.html" class="menu-pill-btn">
-    <i class="fa-solid fa-credit-card"></i> Pagos
-  </a>
-  <a href="ayuda.html" class="menu-pill-btn">
-    <i class="fa-solid fa-circle-question"></i> Ayuda y contacto
-  </a>
-  <hr style="border: 0; border-top: 1px solid #E2E8F0; margin: 8px 0;">
-  <a href="home.html" class="menu-pill-btn active">
-    <i class="fa-solid fa-house"></i> Panel Principal
-  </a>
-</nav>
-
-    <!-- CONTENIDO DE LA PANTALLA -->
-    <main class="main-content">
-      
-<h1 class="page-title">Panel Principal</h1>
-
-<!-- CARRUSEL WIREFRAME -->
-<section class="carousel-box">
-  <span class="carousel-tag" id="slideTag">AVISO IMPORTANTE</span>
-  <h2 id="slideTitle">Inscripción a Exámenes Finales - Llamado Julio</h2>
-  <p id="slideDesc">Ya podés anotarte de forma 100% digital sin filas. Verificá tus correlativas antes de confirmar.</p>
-  <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
-    <a href="academica.html" class="btn-white" id="slideBtn">Ir a Inscripciones</a>
-    <div class="carousel-controls">
-      <button class="icon-btn" onclick="changeSlide(-1)">◀</button>
-      <button class="icon-btn" onclick="changeSlide(1)">▶</button>
-    </div>
+<body data-page="home" data-layout="app">
+<main class="main-content">
+  <h1 class="page-title">Hola, <span data-user-name></span></h1>
+  <p class="page-sub">Esto es lo más importante para vos hoy.</p>
+  <section class="carousel-box" id="carousel" aria-label="Avisos destacados">
+    <span class="carousel-tag" id="cTag"></span><h2 id="cTitle"></h2><p id="cText"></p>
+    <div class="carousel-footer"><a class="btn-white" id="cBtn" href="#"></a>
+      <div class="carousel-controls"><button class="car-btn" id="cPrev" aria-label="Aviso anterior">&#8249;</button><span class="dots" id="cDots"></span><button class="car-btn" id="cNext" aria-label="Aviso siguiente">&#8250;</button></div></div>
+  </section>
+  <h2 class="section-title">¿Qué gestión querés realizar hoy?</h2>
+  <div class="grid-4">
+    <a class="service-card" href="academica.html"><span data-ico="grad" data-size="34"></span><h3>Info académica</h3><p>Materias, horarios, notas e inscripciones</p></a>
+    <a class="service-card" href="tramites.html"><span data-ico="file" data-size="34"></span><h3>Trámites y reclamos</h3><p>Certificados, becas y reclamo de notas</p></a>
+    <a class="service-card" href="pagos.html"><span data-ico="card" data-size="34"></span><h3>Pagos</h3><p>Aranceles, verano y Mercado Pago</p></a>
+    <a class="service-card" href="ayuda.html"><span data-ico="help" data-size="34"></span><h3>Ayuda y contacto</h3><p>Tickets de soporte y preguntas frecuentes</p></a>
   </div>
-</section>
-
-<!-- LAS 4 CATEGORÍAS PRINCIPALES EN ACCESO DIRECTO -->
-<h2 style="font-size:1.2rem; margin-bottom:14px;">¿Qué gestión querés realizar hoy?</h2>
-<div class="grid-4" style="margin-bottom:26px;">
-  <!-- Asegúrate de cambiar el contenedor inicial según tu HTML completo (por ejemplo, <div class="cards-grid">) -->
-<a href="academica.html" class="card" style="text-align:center; border-top:4px solid var(--unlam-green);">
-  <div style="font-size:2rem; margin-bottom:8px; color: var(--unlam-green);">
-    <i class="fa-solid fa-graduation-cap"></i>
+  <div class="grid-2" style="margin-top:26px">
+    <section class="card"><div class="card-header"><h2>Próximos eventos</h2><a class="btn-outline btn-sm" href="calendario.html">Ver calendario</a></div><div id="upcoming"></div></section>
+    <section class="card"><div class="card-header"><h2>Avisos para vos</h2></div>
+      <div class="alert alert-warning"><span data-ico="alert"></span><div><strong>Tenés un pago pendiente</strong>Curso de ingreso 2027 vence el 20/11. <a href="pagos.html"><u>Pagar ahora</u></a></div></div>
+      <div class="alert alert-info"><span data-ico="info"></span><div><strong>Respondieron tu ticket #1042</strong><a href="ayuda.html#tickets"><u>Ver respuesta</u></a></div></div>
+    </section>
   </div>
-  <h3>Info académica</h3>
-  <p style="font-size:0.85rem; color:var(--text-muted); margin-top:4px;">Materias, horarios, notas e inscripciones</p>
-</a>
-
-<a href="tramites.html" class="card" style="text-align:center; border-top:4px solid var(--unlam-green);">
-  <div style="font-size:2rem; margin-bottom:8px; color: var(--unlam-green);">
-    <i class="fa-solid fa-file-lines"></i>
-  </div>
-  <h3>Trámites y reclamos</h3>
-  <p style="font-size:0.85rem; color:var(--text-muted); margin-top:4px;">Certificados, becas y reclamo de notas</p>
-</a>
-
-<a href="pagos.html" class="card" style="text-align:center; border-top:4px solid var(--unlam-green);">
-  <div style="font-size:2rem; margin-bottom:8px; color: var(--unlam-green);">
-    <i class="fa-solid fa-credit-card"></i>
-  </div>
-  <h3>Pagos</h3>
-  <p style="font-size:0.85rem; color:var(--text-muted); margin-top:4px;">Aranceles, verano y Mercado Pago</p>
-</a>
-
-<a href="ayuda.html" class="card" style="text-align:center; border-top:4px solid var(--unlam-green);">
-  <div style="font-size:2rem; margin-bottom:8px; color: var(--unlam-green);">
-    <i class="fa-solid fa-circle-question"></i>
-  </div>
-  <h3>Ayuda y contacto</h3>
-  <p style="font-size:0.85rem; color:var(--text-muted); margin-top:4px;">Tickets de soporte y preguntas frecuentes</p>
-</a>
-</div>
-
-<!-- CALENDARIO ACADÉMICO INTEGRADO (Requisito funcional del Brief) -->
-<section class="card" id="calendario">
-  <div class="card-header">
-    <h3>📅 Próximos Eventos - Noviembre / Diciembre 2026</h3>
-    <a href="calendario.html" class="btn-primary" style="padding: 7px 16px; font-size: 0.85rem;">Abrir Calendario Interactivo →</a>
-  </div>
-  <table>
-    <thead>
-      <tr>
-        <th>Fecha</th>
-        <th>Evento</th>
-        <th>Tipo</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><strong>12 y 13/11/2026</strong></td>
-        <td>Inscripción a Exámenes Finales (Diciembre 2026) - 10 a 18 h</td>
-        <td><span class="status-badge status-ok">Oficial UNLaM</span></td>
-      </tr>
-      <tr>
-        <td><strong>18/11/2026</strong></td>
-        <td>Verificación de inscripción a Exámenes Finales (10 a 22 h)</td>
-        <td><span class="status-badge status-ok">Oficial UNLaM</span></td>
-      </tr>
-      <tr>
-        <td><strong>23/11/2026</strong></td>
-        <td>Feriado Nacional - Día de la Soberanía Nacional (Sin actividad)</td>
-        <td><span class="status-badge" style="background:#FEE2E2; color:#991B1B;">Feriado</span></td>
-      </tr>
-      <tr>
-        <td><strong>05/12/2026</strong></td>
-        <td>Finalización de clases - 2° Cuatrimestre 2026</td>
-        <td><span class="status-badge status-info">Oficial UNLaM</span></td>
-      </tr>
-    </tbody>
-  </table>
-</section>
-
-    </main>
-  </div>
-
-  <!-- CHATBOT FLOTANTE (WIREFRAME) -->
-<button class="chatbot-fab" onclick="toggleChat()" title="Asistente Virtual UNLaM">
-  <i class="fa-solid fa-robot"></i>
-</button>
-
-  <div class="chatbot-window" id="chatbotWindow">
-    <div class="chat-header">
-      <span>🤖 Asistente Virtual UNLaM</span>
-      <button onclick="toggleChat()" style="background:none;border:none;color:white;font-size:1.1rem;cursor:pointer;">✕</button>
-    </div>
-    <div class="chat-body" id="chatBody">
-      <div class="msg-bot">¡Hola! Soy el asistente de Intraconsulta. Consultame sobre inscripciones, pagos o reclamos.</div>
-    </div>
-    <div class="chat-footer">
-      <input type="text" id="chatInput" placeholder="Escribí tu duda..." onkeypress="if(event.key==='Enter') sendChat()">
-      <button class="btn-primary" style="padding: 6px 14px;" onclick="sendChat()">Enviar</button>
-    </div>
-  </div>
-
-  <!-- FOOTER -->
-  <footer class="main-footer">
-    Universidad Nacional de La Matanza • Sistema de Autogestión Estudiantil • <a href="error.html" style="text-decoration:underline;">Simular Alerta/Error</a>
-  </footer>
-
+</main>
   <script src="js/app.js"></script>
 </body>
 </html>

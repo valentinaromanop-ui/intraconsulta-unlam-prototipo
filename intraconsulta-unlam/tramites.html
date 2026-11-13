@@ -3,171 +3,43 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Trámites y Reclamos - Intraconsulta UNLaM</title>
+  <title>Trámites y reclamos - Intraconsulta UNLaM</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap">
   <link rel="stylesheet" href="css/styles.css">
-  
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body>
-
-  <!-- BARRA SUPERIOR WIREFRAME -->
-   <header class="top-header">
-    <div class="header-left">
-      <a href="home.html" class="icon-btn" title="Inicio"> <img src="logo-unlam-bt.png" alt="icono-UNLAM"> </a>
-      <div class="search-bar">
-        <input type="text" placeholder="Buscar trámite, materia o certificado...">
-        <span>🔍</span>
-      </div>
-    </div>
-    <div class="header-right">
-
-<a href="calendario.html" class="icon-btn" title="Calendario Académico">
-  <i class="fa-solid fa-calendar-days"></i>
-</a>
-
-
-<!-- Botón de Notificaciones -->
-<a href="ayuda.html" class="icon-btn badge-notif" title="Notificaciones">
-  <i class="fa-solid fa-bell"></i>
-</a>
-
-<!-- Botón de Perfil / Cerrar Sesión -->
-<a href="index.html" class="icon-btn" title="Perfil / Cerrar Sesión">
-  <i class="fa-solid fa-user"></i>
-</a>
-    </div>
-  </header>
-
-  <div class="app-layout">
-    <!-- FRANJA VERDE LATERAL "MENÚ" (WIREFRAME) -->
-    <aside class="sidebar-rail" onclick="toggleMenu()" title="Abrir menú principal">
-      <div class="rail-hamburger">☰</div>
-      <div class="rail-text">MENÚ</div>
-    </aside>
-
-       <nav class="sidebar-drawer" id="sidebarDrawer">
-  <div class="drawer-title">Navegación Principal</div>
-  <a href="academica.html" class="menu-pill-btn">
-    <i class="fa-solid fa-graduation-cap"></i> Info académica
-  </a>
-  <a href="tramites.html" class="menu-pill-btn">
-    <i class="fa-solid fa-file-lines"></i> Trámites y reclamos
-  </a>
-  <a href="pagos.html" class="menu-pill-btn">
-    <i class="fa-solid fa-credit-card"></i> Pagos
-  </a>
-  <a href="ayuda.html" class="menu-pill-btn">
-    <i class="fa-solid fa-circle-question"></i> Ayuda y contacto
-  </a>
-  <hr style="border: 0; border-top: 1px solid #E2E8F0; margin: 8px 0;">
-  <a href="home.html" class="menu-pill-btn active">
-    <i class="fa-solid fa-house"></i> Panel Principal
-  </a>
-</nav>
-
-    <!-- CONTENIDO DE LA PANTALLA -->
-    <main class="main-content">
-      
-<h1 class="page-title">Trámites y reclamos</h1>
-
-<!-- PÍLDORAS SUPERIORES WIREFRAME -->
-<div class="subnav-pills">
-  <button class="pill-tab">Reclamo de notas / materias</button>
-  <button class="pill-tab outline">Solicitud de certificados</button>
-  <button class="pill-tab outline">Solicitud de becas</button>
-  <button class="pill-tab outline">Cambios de carrera</button>
-</div>
-
-<div class="grid-2">
-  <!-- FORMULARIO (Requisito de la consigna) -->
-  <div class="card">
-    <div class="card-header">
-      <h3>Formulario de Reclamo Académico</h3>
-    </div>
-    <form onsubmit="event.preventDefault(); alert('✅ Reclamo enviado correctamente. Se generó el Ticket #4092.');">
-      <div class="form-group">
-        <label>Tipo de gestión</label>
-        <select class="form-control">
-          <option>Reclamo por carga de nota de parcial / final</option>
-          <option>Error en asignación de comisión</option>
-          <option>Certificado de alumno regular</option>
-          <option>Solicitud de Beca Progresar / UNLaM</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label>Materia involucrada</label>
-        <input type="text" class="form-control" placeholder="Ej: Visualización e Interfaces - Com 01" required>
-      </div>
-      <div class="form-group">
-        <label>Detalle del reclamo</label>
-        <textarea class="form-control" rows="4" placeholder="Explicá brevemente el inconveniente..." required></textarea>
-      </div>
-      <div class="form-group">
-        <label>Adjuntar comprobante (PDF o JPG)</label>
-        <input type="file" class="form-control">
-      </div>
-      <button type="submit" class="btn-primary">Enviar Solicitud</button>
-    </form>
-  </div>
-
-  <!-- SEGUIMIENTO DE TRÁMITES -->
-  <div class="card">
-    <div class="card-header">
-      <h3>Estado de mis trámites recientes</h3>
-    </div>
-    <table>
-      <thead>
-        <tr>
-          <th>N° Trámite</th>
-          <th>Gestión</th>
-          <th>Estado</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>#3891</td>
-          <td>Certificado Alumno Regular</td>
-          <td><span class="status-badge status-ok">Listo para descargar</span></td>
-        </tr>
-        <tr>
-          <td>#3940</td>
-          <td>Revisión Acta Final</td>
-          <td><span class="status-badge status-wait">En revisión Dpto.</span></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</div>
-
-    </main>
-  </div>
-
-  <!-- CHATBOT FLOTANTE (WIREFRAME) -->
-<button class="chatbot-fab" onclick="toggleChat()" title="Asistente Virtual UNLaM">
-  <i class="fa-solid fa-robot"></i>
-</button>
-
-  <div class="chatbot-window" id="chatbotWindow">
-    <div class="chat-header">
-    <button class="chatbot-fab" onclick="toggleChat()" title="Asistente Virtual UNLaM">
-  <i class="fa-solid fa-robot"></i>
-</button>
-      <button onclick="toggleChat()" style="background:none;border:none;color:white;font-size:1.1rem;cursor:pointer;">✕</button>
-    </div>
-    <div class="chat-body" id="chatBody">
-      <div class="msg-bot">¡Hola! Soy el asistente de Intraconsulta. Consultame sobre inscripciones, pagos o reclamos.</div>
-    </div>
-    <div class="chat-footer">
-      <input type="text" id="chatInput" placeholder="Escribí tu duda..." onkeypress="if(event.key==='Enter') sendChat()">
-      <button class="btn-primary" style="padding: 6px 14px;" onclick="sendChat()">Enviar</button>
-    </div>
-  </div>
-
-  <!-- FOOTER -->
-  <footer class="main-footer">
-    Universidad Nacional de La Matanza • Sistema de Autogestión Estudiantil • <a href="error.html" style="text-decoration:underline;">Simular Alerta/Error</a>
-  </footer>
-
+<body data-page="tramites" data-layout="app">
+<main class="main-content">
+  <h1 class="page-title">Trámites y reclamos</h1>
+  <p class="page-sub">Hacé tus pedidos desde acá y seguí su estado sin ir a la facultad.</p>
+  <div class="subnav-pills" data-tabs><button type="button" class="pill-tab active" data-tab="becas">Becas</button><button type="button" class="pill-tab" data-tab="reclamos">Reclamos</button><button type="button" class="pill-tab" data-tab="certificados">Certificados</button><button type="button" class="pill-tab" data-tab="cambio">Cambio de carrera</button></div>
+  <section class="tab-panel" id="becas"><div class="grid-3">
+    <div class="card"><h2>Beca de ayuda económica</h2><p class="hint" style="margin:8px 0 14px">Para estudiantes con dificultades económicas. Convocatoria abierta hasta el 30/11.</p><button class="btn-primary btn-sm" onclick="document.getElementById('bf').scrollIntoView()">Solicitar</button></div>
+    <div class="card"><h2>Beca de transporte</h2><p class="hint" style="margin:8px 0 14px">Ayuda mensual para viajes a la sede San Justo.</p><button class="btn-primary btn-sm" onclick="document.getElementById('bf').scrollIntoView()">Solicitar</button></div>
+    <div class="card"><h2>Beca de excelencia</h2><p class="hint" style="margin:8px 0 14px">Requiere promedio mayor a 8 puntos.</p><button class="btn-primary btn-sm" onclick="document.getElementById('bf').scrollIntoView()">Solicitar</button></div></div>
+    <form class="card" id="bf" data-demo="Solicitud de beca enviada. Te avisamos cuando cambie su estado."><div class="card-header"><h2>Solicitud de beca</h2></div>
+      <div class="form-row"><div class="form-group"><label for="bt">Tipo de beca</label><select class="form-control" id="bt"><option>Ayuda económica</option><option>Transporte</option><option>Excelencia</option></select></div>
+      <div class="form-group"><label for="bd">Documentación (PDF)</label><input class="form-control" id="bd" type="file" accept=".pdf" required></div></div>
+      <button class="btn-primary" type="submit">Enviar solicitud</button></form></section>
+  <section class="tab-panel" id="reclamos"><form class="card" data-demo="Reclamo registrado. Podés seguirlo en Mis trámites."><div class="card-header"><h2>Nuevo reclamo de nota o materia</h2></div>
+    <div class="form-row"><div class="form-group"><label for="rm">Materia</label><select class="form-control" id="rm"><option>Programación Avanzada</option><option>Base de Datos</option><option>Redes de Datos</option></select></div>
+    <div class="form-group"><label for="rt">Motivo</label><select class="form-control" id="rt"><option>Error en la nota</option><option>Nota no cargada</option><option>Comisión incorrecta</option></select></div></div>
+    <div class="form-group"><label for="rd">Detalle</label><textarea class="form-control" id="rd" required placeholder="Contanos qué pasó"></textarea></div>
+    <button class="btn-primary" type="submit">Enviar reclamo</button></form></section>
+  <section class="tab-panel" id="certificados"><form class="card" data-demo="Certificado solicitado. Estará listo en 48 hs hábiles."><div class="card-header"><h2>Solicitar certificado</h2></div>
+    <div class="form-row"><div class="form-group"><label for="ct">Tipo</label><select class="form-control" id="ct"><option>Alumno regular</option><option>Materias aprobadas</option><option>Examen rendido</option></select></div>
+    <div class="form-group"><label for="cf">Formato</label><select class="form-control" id="cf"><option>Digital (PDF con firma)</option><option>Papel (retiro en sede)</option></select></div></div>
+    <button class="btn-primary" type="submit">Solicitar</button></form></section>
+  <section class="tab-panel" id="cambio"><form class="card" data-demo="Pedido de cambio de carrera enviado."><div class="card-header"><h2>Cambio de carrera</h2></div>
+    <div class="alert alert-info"><span data-ico="info"></span><div>El cambio se evalúa según equivalencias. Respuesta en 10 días hábiles.</div></div>
+    <div class="form-group"><label for="cc">Nueva carrera</label><select class="form-control" id="cc"><option>Ingeniería Industrial</option><option>Licenciatura en Administración</option><option>Contador Público</option></select></div>
+    <button class="btn-primary" type="submit">Enviar pedido</button></form></section>
+  <div class="card"><div class="card-header"><h2>Mis trámites</h2></div><div class="table-wrap"><table>
+    <tr><th>N.º</th><th>Trámite</th><th>Fecha</th><th>Estado</th></tr>
+    <tr><td>#2031</td><td>Certificado de alumno regular</td><td>05/11/2026</td><td><span class="status-badge status-ok">Listo para descargar</span></td></tr>
+    <tr><td>#2044</td><td>Reclamo de nota: Estadística</td><td>10/11/2026</td><td><span class="status-badge status-wait">En revisión</span></td></tr></table></div></div>
+</main>
   <script src="js/app.js"></script>
 </body>
 </html>
