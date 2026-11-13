@@ -11,16 +11,29 @@
   <!-- BARRA SUPERIOR WIREFRAME -->
   <header class="top-header">
     <div class="header-left">
-      <a href="home.html" class="icon-btn" title="Inicio">🏠</a>
+   <a href="home.html" class="icon-btn" title="Inicio"> <img src="logo-unlam-bt.png" alt="icono-UNLAM"> </a>
       <div class="search-bar">
         <input type="text" placeholder="Buscar trámite, materia o certificado...">
         <span>🔍</span>
       </div>
     </div>
     <div class="header-right">
-      <a href="home.html#calendario" class="icon-btn" title="Calendario Académico">📅</a>
-      <a href="ayuda.html" class="icon-btn badge-notif" title="Notificaciones">🔔</a>
-      <a href="index.html" class="icon-btn" title="Perfil / Cerrar Sesión">👤</a>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<a href="calendario.html" class="icon-btn" title="Calendario Académico">
+  <i class="fa-solid fa-calendar-days"></i>
+</a>
+
+
+<!-- Botón de Notificaciones -->
+<a href="ayuda.html" class="icon-btn badge-notif" title="Notificaciones">
+  <i class="fa-solid fa-bell"></i>
+</a>
+
+<!-- Botón de Perfil / Cerrar Sesión -->
+<a href="index.html" class="icon-btn" title="Perfil / Cerrar Sesión">
+  <i class="fa-solid fa-user"></i>
+</a>
     </div>
   </header>
 
@@ -33,14 +46,24 @@
 
     <!-- MENÚ DESPLEGABLE CON LAS 4 OPCIONES PRINCIPALES -->
     <nav class="sidebar-drawer" id="sidebarDrawer">
-      <div class="drawer-title">Navegación Principal</div>
-      <a href="academica.html" class="menu-pill-btn ">📚 Info académica</a>
-      <a href="tramites.html" class="menu-pill-btn ">📝 Trámites y reclamos</a>
-      <a href="pagos.html" class="menu-pill-btn active">💳 Pagos</a>
-      <a href="ayuda.html" class="menu-pill-btn ">💬 Ayuda y contacto</a>
-      <hr style="border: 0; border-top: 1px solid #E2E8F0; margin: 8px 0;">
-      <a href="home.html" class="menu-pill-btn ">🏠 Panel Principal</a>
-    </nav>
+  <div class="drawer-title">Navegación Principal</div>
+  <a href="academica.html" class="menu-pill-btn">
+    <i class="fa-solid fa-graduation-cap"></i> Info académica
+  </a>
+  <a href="tramites.html" class="menu-pill-btn">
+    <i class="fa-solid fa-file-lines"></i> Trámites y reclamos
+  </a>
+  <a href="pagos.html" class="menu-pill-btn">
+    <i class="fa-solid fa-credit-card"></i> Pagos
+  </a>
+  <a href="ayuda.html" class="menu-pill-btn">
+    <i class="fa-solid fa-circle-question"></i> Ayuda y contacto
+  </a>
+  <hr style="border: 0; border-top: 1px solid #E2E8F0; margin: 8px 0;">
+  <a href="home.html" class="menu-pill-btn active">
+    <i class="fa-solid fa-house"></i> Panel Principal
+  </a>
+</nav>
 
     <!-- CONTENIDO DE LA PANTALLA -->
     <main class="main-content">
