@@ -3,22 +3,77 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Algo salió mal - Intraconsulta UNLaM</title>
+  <title>¡Uy, algo falló! - Intraconsulta UNLaM</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap">
   <link rel="stylesheet" href="css/styles.css">
+  <style>
+    /* Animación flotante y tierna para la carita */
+    @keyframes floatingFace {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-6px) rotate(-2deg); }
+    }
+    .error-face-container {
+      animation: floatingFace 3.5s ease-in-out infinite;
+      margin: 0 auto 18px auto;
+      width: 80px;
+      height: 80px;
+      background: rgba(0, 122, 51, 0.08);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  </style>
 </head>
-<body data-page="error" data-layout="app">
-<main class="auth-wrapper">
-  <div class="auth-card">
-    <div class="error-code">404</div>
-    <h1 style="margin-top:10px">No encontramos esta página</h1>
-    <p class="subtitle" id="errQuery" style="margin-bottom:8px">El enlace puede estar roto o la página ya no existe.</p>
-    <p class="subtitle">Volvé al panel principal o probá buscar con otras palabras, por ejemplo "beca" o "certificado".</p>
-    <div class="error-actions"><a class="btn-primary" href="home.html" style="width:auto">Ir al panel principal</a><a class="btn-outline" href="ayuda.html">Pedir ayuda</a></div>
+<body data-page="error" data-layout="auth">
+
+<main class="main-content" style="display: flex; align-items: center; justify-content: center; min-height: 75vh; padding: 20px;">
+  <div class="card" style="max-width: 500px; width: 100%; text-align: center; padding: 40px 30px; border-top: 4px solid var(--unlam-green, #007a33);">
+    
+    <!-- Carita triste ilustrada -->
+    <div class="error-face-container">
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Círculo base de la carita -->
+        <circle cx="12" cy="12" r="10" fill="#007a33" opacity="0.12"/>
+        <circle cx="12" cy="12" r="10" stroke="#007a33" stroke-width="1.5" stroke-dasharray="3 3"/>
+        <!-- Ojos tristes / cerrados -->
+        <path d="M8 9.5C8.5 9 9.5 9 10 9.5" stroke="#007a33" stroke-width="2" stroke-linecap="round"/>
+        <path d="M14 9.5C14.5 9 15.5 9 16 9.5" stroke="#007a33" stroke-width="2" stroke-linecap="round"/>
+        <!-- Boca triste (invertida) -->
+        <path d="M8.5 15C9.5 13.5 14.5 13.5 15.5 15" stroke="#007a33" stroke-width="2" stroke-linecap="round"/>
+        <!-- Lágrima tierna -->
+        <path d="M16 11.5C16 11.5 17 13 17 13.8C17 14.4627 16.4627 15 15.8 15C15.1373 15 14.6 14.4627 14.6 13.8C14.6 13 16 11.5 16 11.5Z" fill="#3b82f6"/>
+      </svg>
+    </div>
+
+    <h1 class="page-title" style="font-size: 1.6rem; margin-bottom: 8px;">¡Uy! Nos quedamos sin conexión</h1>
+    
+    <p class="page-sub" style="margin-bottom: 20px; font-size: 0.95rem;">
+    Parece que hay muchos estudiantes intentando ingresar al mismo tiempo
+    </p>
+
+    <div class="alert alert-warning" style="text-align: left; margin-bottom: 24px; font-size: 0.9rem;">
+      <span data-ico="alert"></span>
+      <div>
+        <strong>No te preocupes:</strong> Tus notas, inscripciones y pagos están a salvo. Probá recargar en unos segundos.
+      </div>
+    </div>
+
+    <!-- Botones de acción -->
+    <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+      <button class="btn-primary" type="button" onclick="location.reload()" style="background-color: var(--unlam-green, #007a33);">Reintentar ahora</button>
+      <a class="btn-outline" href="home.html">Volver al inicio</a>
+    </div>
+
+    <p class="hint" style="margin-top: 24px;">
+      Si el problema continúa, podés dejarnos un mensaje en <a href="ayuda.html" style="color: var(--unlam-green, #007a33); text-decoration: underline;">Soporte Técnico</a>.
+    </p>
+
   </div>
 </main>
-  <script src="js/app.js"></script>
+
+<script src="js/app.js"></script>
 </body>
 </html>
