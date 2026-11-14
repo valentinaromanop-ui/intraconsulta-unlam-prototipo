@@ -13,7 +13,7 @@
 <main class="main-content">
   <h1 class="page-title">Ayuda y contacto</h1>
   <p class="page-sub">Resolvé tus dudas sin salir de Intraconsulta.</p>
-  <div class="subnav-pills" data-tabs><button type="button" class="pill-tab active" data-tab="faq">Preguntas frecuentes</button><button type="button" class="pill-tab" data-tab="chat">Asistente virtual</button><button type="button" class="pill-tab" data-tab="ticket">Generar ticket</button><button type="button" class="pill-tab" data-tab="tickets">Mis tickets</button></div>
+  <div class="subnav-pills" data-tabs><button type="button" class="pill-tab active" data-tab="faq">Preguntas frecuentes</button><button type="button" class="pill-tab" data-tab="chat">Asistente virtual</button><button type="button" class="pill-tab" data-tab="ticket">Generar constancia de consulta</button><button type="button" class="pill-tab" data-tab="tickets">Mis tickets</button></div>
   <section class="tab-panel" id="faq">
     <details open><summary>¿Cómo me inscribo a un final?</summary><p>Entrá a Info académica, abrí Inscripciones y elegí el final. Tiene que estar abierto el período y tener las correlativas aprobadas.</p></details>
     <details><summary>¿Cómo pago el curso de ingreso?</summary><p>Desde Pagos elegí el concepto y pagá con Mercado Pago. El comprobante queda en la pestaña Comprobantes.</p></details>
@@ -21,13 +21,13 @@
     <details><summary>Olvidé mi contraseña, ¿qué hago?</summary><p>En la pantalla de inicio de sesión tocá "¿Olvidaste tu contraseña?" y seguí los pasos.</p></details></section>
   <section class="tab-panel" id="chat"><div class="card"><div class="card-header"><h2>Asistente virtual</h2></div><p style="margin-bottom:14px">Respondemos consultas frecuentes al instante. Si no alcanza, podés pasar a una persona.</p>
     <button class="btn-primary" data-open-chat type="button">Abrir chat</button> <a class="btn-outline" href="#ticket" onclick="location.hash='ticket';location.reload()">Hablar con una persona</a></div></section>
-  <section class="tab-panel" id="ticket"><form class="card" data-demo="Ticket #1043 creado. Te avisamos cuando respondan."><div class="card-header"><h2>Nuevo ticket de soporte</h2></div>
+  <section class="tab-panel" id="ticket"><form class="card" data-demo="Consulta #1043 creada. Te avisamos cuando respondan."><div class="card-header"><h2>Nueva constancia de soporte</h2></div>
     <div class="form-row"><div class="form-group"><label for="ta">Área</label><select class="form-control" id="ta"><option>Alumnos</option><option>Pagos</option><option>Sistemas</option></select></div>
     <div class="form-group"><label>Cómo querés que te atiendan</label><div class="radio-row"><label><input type="radio" name="canal" checked> Una persona</label><label><input type="radio" name="canal"> Asistente virtual</label></div></div></div>
     <div class="form-group"><label for="ts">Asunto</label><input class="form-control" id="ts" required></div>
     <div class="form-group"><label for="tm">Mensaje</label><textarea class="form-control" id="tm" required></textarea></div>
-    <button class="btn-primary" type="submit">Enviar ticket</button></form></section>
-  <section class="tab-panel" id="tickets"><div class="card"><div class="card-header"><h2>Mis tickets</h2></div><div class="table-wrap"><table>
+    <button class="btn-primary" type="submit">Enviar consulta</button></form></section>
+  <section class="tab-panel" id="tickets"><div class="card"><div class="card-header"><h2>Mis consultas</h2></div><div class="table-wrap"><table>
     <tr><th>N.º</th><th>Asunto</th><th>Canal</th><th>Estado</th></tr>
     <tr><td>#1042</td><td>No veo mi nota de Estadística</td><td>Persona</td><td><span class="status-badge status-ok">Respondido</span></td></tr>
     <tr><td>#1039</td><td>Error al pagar con tarjeta</td><td>Asistente</td><td><span class="status-badge status-wait">En proceso</span></td></tr></table></div></div></section>
