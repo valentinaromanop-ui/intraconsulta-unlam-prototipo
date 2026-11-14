@@ -239,3 +239,4 @@ details[open] summary{color:var(--unlam-green)}
   .chatbot-window{right:16px;bottom:86px}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
