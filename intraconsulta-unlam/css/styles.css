@@ -136,7 +136,8 @@ table{width:100%;border-collapse:collapse;font-size:.92rem}
 th,td{text-align:left;padding:12px;border-bottom:1px solid var(--border-color);white-space:nowrap}
 th{background:var(--unlam-green-light);color:var(--unlam-green-dark);font-weight:600}
 .status-badge{padding:4px 10px;border-radius:var(--radius-pill);font-size:.8rem;font-weight:600;display:inline-block}
-.status-ok{background:#DCFCE7;color:#166534}.status-wait{background:#FEF3C7;color:#92400E}.status-err{background:#FEE2E2;color:#991B1B}
+.status-ok{background:#DCFCE7;color:#166534}.status-wait{background:#FEF3C7;color:#92400E}.status-err{background:#FEE2E2;color:#991B1B}.status-review{background:var(--info-bg);color:var(--info)}
+.requests-table td{white-space:normal}
 
 /* Gráfico */
 .chart{display:flex;align-items:flex-end;gap:28px;height:220px;padding:20px 10px 0;border-bottom:2px solid var(--border-color)}
@@ -238,6 +239,13 @@ details[open] summary{color:var(--unlam-green)}
 @media (max-width:600px){
   .grid-4{grid-template-columns:1fr}
   .subnav-pills .pill-tab{flex:1 1 calc(50% - 10px);text-align:center;padding:9px 10px}
+  .requests-table,.requests-table tbody,.requests-table tr,.requests-table td{display:block;width:100%}
+  .requests-table thead{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+  .requests-table tr{border:1px solid var(--border-color);border-radius:var(--radius-md);padding:4px 12px;margin-bottom:12px}
+  .requests-table tr:last-child{margin-bottom:0}
+  .requests-table td{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;padding:9px 0;border-bottom:1px solid var(--border-color)}
+  .requests-table td:last-child{border-bottom:0}
+  .requests-table td::before{content:attr(data-label);font-weight:600;color:var(--text-muted)}
   .brand-text{display:none}
   .cal-day{min-height:72px;padding:3px}
   .event-chip{font-size:.58rem;padding:2px 3px}

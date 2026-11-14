@@ -13,32 +13,193 @@
 <main class="main-content">
   <h1 class="page-title">Trámites y reclamos</h1>
   <p class="page-sub">Hacé tus pedidos desde acá y seguí su estado sin ir a la facultad.</p>
-  <div class="subnav-pills" data-tabs><button type="button" class="pill-tab active" data-tab="becas">Becas</button><button type="button" class="pill-tab" data-tab="reclamos">Reclamos</button><button type="button" class="pill-tab" data-tab="certificados">Certificados</button><button type="button" class="pill-tab" data-tab="cambio">Cambio de carrera</button></div>
-  <section class="tab-panel" id="becas"><div class="grid-3">
-    <div class="card"><h2>Beca de ayuda económica</h2><p class="hint" style="margin:8px 0 14px">Para estudiantes con dificultades económicas. Convocatoria abierta hasta el 30/11.</p><button class="btn-primary btn-sm" onclick="document.getElementById('bf').scrollIntoView()">Solicitar</button></div>
-    <div class="card"><h2>Beca de transporte</h2><p class="hint" style="margin:8px 0 14px">Ayuda mensual para viajes a la sede San Justo.</p><button class="btn-primary btn-sm" onclick="document.getElementById('bf').scrollIntoView()">Solicitar</button></div>
-    <div class="card"><h2>Beca de excelencia</h2><p class="hint" style="margin:8px 0 14px">Requiere promedio mayor a 8 puntos.</p><button class="btn-primary btn-sm" onclick="document.getElementById('bf').scrollIntoView()">Solicitar</button></div></div>
-    <form class="card" id="bf" data-demo="Solicitud de beca enviada. Te avisamos cuando cambie su estado."><div class="card-header"><h2>Solicitud de beca</h2></div>
-      <div class="form-row"><div class="form-group"><label for="bt">Tipo de beca</label><select class="form-control" id="bt"><option>Ayuda económica</option><option>Transporte</option><option>Excelencia</option></select></div>
-      <div class="form-group"><label for="bd">Documentación (PDF)</label><input class="form-control" id="bd" type="file" accept=".pdf" required></div></div>
-      <button class="btn-primary" type="submit">Enviar solicitud</button></form></section>
-  <section class="tab-panel" id="reclamos"><form class="card" data-demo="Reclamo registrado. Podés seguirlo en Mis trámites."><div class="card-header"><h2>Nuevo reclamo de nota o materia</h2></div>
-    <div class="form-row"><div class="form-group"><label for="rm">Materia</label><select class="form-control" id="rm"><option>Programación Avanzada</option><option>Base de Datos</option><option>Redes de Datos</option></select></div>
-    <div class="form-group"><label for="rt">Motivo</label><select class="form-control" id="rt"><option>Error en la nota</option><option>Nota no cargada</option><option>Comisión incorrecta</option></select></div></div>
-    <div class="form-group"><label for="rd">Detalle</label><textarea class="form-control" id="rd" required placeholder="Contanos qué pasó"></textarea></div>
-    <button class="btn-primary" type="submit">Enviar reclamo</button></form></section>
-  <section class="tab-panel" id="certificados"><form class="card" data-demo="Certificado solicitado. Estará listo en 48 hs hábiles."><div class="card-header"><h2>Solicitar certificado</h2></div>
-    <div class="form-row"><div class="form-group"><label for="ct">Tipo</label><select class="form-control" id="ct"><option>Alumno regular</option><option>Materias aprobadas</option><option>Examen rendido</option></select></div>
-    <div class="form-group"><label for="cf">Formato</label><select class="form-control" id="cf"><option>Digital (PDF con firma)</option><option>Papel (retiro en sede)</option></select></div></div>
-    <button class="btn-primary" type="submit">Solicitar</button></form></section>
-  <section class="tab-panel" id="cambio"><form class="card" data-demo="Pedido de cambio de carrera enviado."><div class="card-header"><h2>Cambio de carrera</h2></div>
-    <div class="alert alert-info"><span data-ico="info"></span><div>El cambio se evalúa según equivalencias. Respuesta en 10 días hábiles.</div></div>
-    <div class="form-group"><label for="cc">Nueva carrera</label><select class="form-control" id="cc"><option>Ingeniería Industrial</option><option>Licenciatura en Administración</option><option>Contador Público</option></select></div>
-    <button class="btn-primary" type="submit">Enviar pedido</button></form></section>
-  <div class="card"><div class="card-header"><h2>Mis trámites</h2></div><div class="table-wrap"><table>
-    <tr><th>N.º</th><th>Trámite</th><th>Fecha</th><th>Estado</th></tr>
-    <tr><td>#2031</td><td>Certificado de alumno regular</td><td>05/11/2026</td><td><span class="status-badge status-ok">Listo para descargar</span></td></tr>
-    <tr><td>#2044</td><td>Reclamo de nota: Estadística</td><td>10/11/2026</td><td><span class="status-badge status-wait">En revisión</span></td></tr></table></div></div>
+  <div class="subnav-pills" data-tabs>
+    <button type="button" class="pill-tab active" data-tab="becas">Becas</button>
+    <button type="button" class="pill-tab" data-tab="certificados">Certificados</button>
+    <button type="button" class="pill-tab" data-tab="situacion-academica">Situación académica</button>
+    <button type="button" class="pill-tab" data-tab="documentacion">Documentación</button>
+    <button type="button" class="pill-tab" data-tab="reclamos">Reclamos</button>
+    <button type="button" class="pill-tab" data-tab="cambio">Cambio de carrera</button>
+  </div>
+
+  <section class="tab-panel" id="becas">
+    <div class="grid-3">
+      <div class="card">
+        <h2>Beca de ayuda económica</h2>
+        <p class="hint" style="margin:8px 0 14px">Para estudiantes con dificultades económicas. Convocatoria abierta hasta el 30/11.</p>
+        <button class="btn-primary btn-sm" type="button" onclick="document.getElementById('bf').scrollIntoView()">Solicitar</button>
+      </div>
+      <div class="card">
+        <h2>Beca de transporte</h2>
+        <p class="hint" style="margin:8px 0 14px">Ayuda mensual para viajes a la sede San Justo.</p>
+        <button class="btn-primary btn-sm" type="button" onclick="document.getElementById('bf').scrollIntoView()">Solicitar</button>
+      </div>
+      <div class="card">
+        <h2>Beca de excelencia</h2>
+        <p class="hint" style="margin:8px 0 14px">Requiere promedio mayor a 8 puntos.</p>
+        <button class="btn-primary btn-sm" type="button" onclick="document.getElementById('bf').scrollIntoView()">Solicitar</button>
+      </div>
+    </div>
+    <form class="card" id="bf" data-demo="Solicitud de beca enviada. Te avisamos cuando cambie su estado.">
+      <div class="card-header"><h2>Solicitud de beca</h2></div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="bt">Tipo de beca</label>
+          <select class="form-control" id="bt"><option>Ayuda económica</option><option>Transporte</option><option>Excelencia</option></select>
+        </div>
+        <div class="form-group">
+          <label for="bd">Documentación (PDF)</label>
+          <input class="form-control" id="bd" type="file" accept=".pdf" required>
+        </div>
+      </div>
+      <button class="btn-primary" type="submit">Enviar solicitud</button>
+    </form>
+  </section>
+
+  <section class="tab-panel" id="certificados">
+    <form class="card" data-demo="Certificado solicitado. Estará listo en 48 hs hábiles.">
+      <div class="card-header"><h2>Solicitar certificado</h2></div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="ct">Tipo</label>
+          <select class="form-control" id="ct">
+            <option>Alumno regular</option>
+            <option>Materias aprobadas</option>
+            <option>Examen rendido</option>
+            <option>Constancia de título en trámite</option>
+            <option>Constancia de examen parcial</option>
+            <option>Constancia de examen final</option>
+            <option>Certificado de competencias básicas</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="cf">Formato</label>
+          <select class="form-control" id="cf"><option>Digital (PDF con firma)</option><option>Papel (retiro en sede)</option></select>
+        </div>
+      </div>
+      <button class="btn-primary" type="submit">Solicitar</button>
+    </form>
+  </section>
+
+  <section class="tab-panel" id="situacion-academica">
+    <form class="card" data-demo="Pedido de situación académica enviado. Podés seguirlo en Mis pedidos.">
+      <div class="card-header"><h2>Situación académica</h2></div>
+      <div class="form-group">
+        <label for="sa-tipo">Tipo de trámite</label>
+        <select class="form-control" id="sa-tipo">
+          <option>Reincorporación</option>
+          <option>Baja de inscripción anual</option>
+          <option>Cambio de plan</option>
+          <option>Exención de correlativas</option>
+          <option>Solicitud de excepcionalidad</option>
+          <option>Homologaciones interdepartamentales</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="sa-detalle">Motivo / detalle</label>
+        <textarea class="form-control" id="sa-detalle" required placeholder="Contanos qué necesitás"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="sa-documentacion">Documentación (PDF, opcional)</label>
+        <input class="form-control" id="sa-documentacion" type="file" accept=".pdf,application/pdf">
+      </div>
+      <div class="alert alert-info"><span data-ico="info"></span><div>Respuesta en 5 días hábiles.</div></div>
+      <button class="btn-primary" type="submit">Enviar pedido</button>
+    </form>
+  </section>
+
+  <section class="tab-panel" id="documentacion">
+    <form class="card" data-demo="Pedido de documentación enviado. Podés seguirlo en Mis pedidos.">
+      <div class="card-header"><h2>Solicitar documentación</h2></div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="doc-tipo">Documento</label>
+          <select class="form-control" id="doc-tipo">
+            <option>Analítico parcial</option>
+            <option>Título / analítico (grado, pregrado, posgrado)</option>
+            <option>Legalización de programas</option>
+            <option>Libreta universitaria</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="doc-formato">Formato</label>
+          <select class="form-control" id="doc-formato"><option>Digital (PDF con firma)</option><option>Impreso (retiro en sede)</option></select>
+        </div>
+      </div>
+      <button class="btn-primary" type="submit">Enviar pedido</button>
+    </form>
+  </section>
+
+  <section class="tab-panel" id="reclamos">
+    <form class="card" data-demo="Reclamo registrado. Podés seguirlo en Mis pedidos.">
+      <div class="card-header"><h2>Nuevo reclamo</h2></div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="rm">Materia</label>
+          <select class="form-control" id="rm"><option>Programación Avanzada</option><option>Base de Datos</option><option>Redes de Datos</option></select>
+        </div>
+        <div class="form-group">
+          <label for="rt">Motivo</label>
+          <select class="form-control" id="rt">
+            <option>Error en la nota</option>
+            <option>Nota no cargada</option>
+            <option>Comisión incorrecta</option>
+            <option>Materia no visible en MIEL / inscripción no registrada</option>
+            <option>Problema con activación de cuenta</option>
+            <option>Error en datos personales (nombre, DNI)</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="rd">Detalle</label>
+        <textarea class="form-control" id="rd" required placeholder="Contanos qué pasó"></textarea>
+      </div>
+      <button class="btn-primary" type="submit">Enviar reclamo</button>
+    </form>
+  </section>
+
+  <section class="tab-panel" id="cambio">
+    <form class="card" data-demo="Pedido de cambio de carrera enviado.">
+      <div class="card-header"><h2>Cambio de carrera</h2></div>
+      <div class="alert alert-info"><span data-ico="info"></span><div>El cambio se evalúa según equivalencias. Respuesta en 10 días hábiles.</div></div>
+      <div class="form-group">
+        <label for="cc">Nueva carrera</label>
+        <select class="form-control" id="cc"><option>Ingeniería Industrial</option><option>Licenciatura en Administración</option><option>Contador Público</option></select>
+      </div>
+      <button class="btn-primary" type="submit">Enviar pedido</button>
+    </form>
+  </section>
+
+  <section class="card" aria-labelledby="mis-pedidos-title">
+    <div class="card-header"><h2 id="mis-pedidos-title">Mis tramites</h2></div>
+    <div class="table-wrap">
+      <table class="requests-table">
+        <thead>
+          <tr><th scope="col">N.º</th><th scope="col">Trámite</th><th scope="col">Fecha</th><th scope="col">Estado</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-label="N.º">#2031</td>
+            <td data-label="Trámite">Certificado de alumno regular</td>
+            <td data-label="Fecha">05/11/2026</td>
+            <td data-label="Estado"><span class="status-badge status-ok">Resuelto</span></td>
+          </tr>
+          <tr>
+            <td data-label="N.º">#2044</td>
+            <td data-label="Trámite">Reclamo de nota: Estadística</td>
+            <td data-label="Fecha">10/11/2026</td>
+            <td data-label="Estado"><span class="status-badge status-review">En revisión</span></td>
+          </tr>
+          <tr>
+            <td data-label="N.º">#2048</td>
+            <td data-label="Trámite">Reincorporación</td>
+            <td data-label="Fecha">12/11/2026</td>
+            <td data-label="Estado"><span class="status-badge status-wait">Pendiente</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
 </main>
   <script src="js/app.js"></script>
 </body>

@@ -196,10 +196,16 @@ function buildChat() {
 function initTabs() {
   $$('[data-tabs]').forEach(g => {
     const btns = $$('.pill-tab', g);
-    const show = k => { btns.forEach(b => b.classList.toggle('active', b.dataset.tab === k)); $$('.tab-panel').forEach(p => p.classList.toggle('active', p.id === k)); };
+    const panels = $$('.tab-panel', g.parentElement || document);
+    if (!btns.length || !panels.length) return;
+    const show = k => { btns.forEach(b => b.classList.toggle('active', b.dataset.tab === k)); panels.forEach(p => p.classList.toggle('active', p.id === k)); };
     btns.forEach(b => b.onclick = () => { show(b.dataset.tab); history.replaceState(null, '', '#' + b.dataset.tab); });
-    const h = location.hash.slice(1);
-    show(btns.some(b => b.dataset.tab === h) ? h : btns[0].dataset.tab);
+    const activateFromHash = () => {
+      const h = location.hash.slice(1);
+      show(btns.some(b => b.dataset.tab === h) ? h : btns[0].dataset.tab);
+    };
+    activateFromHash();
+    window.addEventListener('hashchange', activateFromHash);
   });
 }
 
