@@ -82,12 +82,16 @@ function buildLayout() {
   const body = document.body, page = body.dataset.page, auth = body.dataset.layout === 'auth';
   const main = $('main');
   const header = document.createElement('header'); header.className = 'top-header';
-  const brand = `<a class="brand" href="${auth ? 'index.html' : 'home.html'}" aria-label="Intraconsulta UNLaM, ir al inicio"><img class="header-logo" src="logo-unlam-bt.png" alt="UNLaM"><span class="brand-text">Intraconsulta</span></a>`;
+  const brand = `<a class="brand" href="${auth ? 'index.html' : 'home.html'}" aria-label="Intraconsulta UNLaM, ir al inicio"><img class="header-logo" src="img/logo-unlam-bt.png" alt="UNLaM"><span class="brand-text">Intraconsulta</span></a>`;
+  const msBtn = `<a class="icon-btn" href="https://m365.cloud.microsoft/es-es/" target="_blank" rel="noopener noreferrer" title="Portal Microsoft 365" aria-label="Portal Microsoft 365">
+    <img src="img/iconoOffice.webp" alt="Microsoft 365" style="width:22px; height:22px; object-fit:contain; display:block;">
+  </a>`;
   header.innerHTML = auth
-    ? `<div class="header-left">${brand}</div><div class="header-right"><a class="icon-btn" href="calendario.html" title="Calendario académico" aria-label="Calendario académico">${ico('cal', 22)}</a></div>`
+  ? `<div class="header-left">${brand}</div><div class="header-right">${msBtn}<a class="icon-btn" href="calendario.html" title="Calendario académico" aria-label="Calendario académico">${ico('cal', 22)}</a></div>`
     : `<div class="header-left">${brand}
         <form class="search-bar" id="searchForm" role="search"><input id="searchInput" type="search" placeholder="Buscar trámite, materia o certificado..." aria-label="Buscar"><button type="submit" aria-label="Buscar">${ico('search')}</button></form></div>
        <div class="header-right">
+        ${msBtn}
         <a class="icon-btn" href="calendario.html" title="Calendario académico" aria-label="Calendario académico">${ico('cal', 22)}</a>
         <div class="dropdown"><button class="icon-btn" id="bellBtn" aria-label="Notificaciones, 2 sin leer" aria-expanded="false">${ico('bell', 22)}<span class="badge-count">2</span></button>
           <div class="dropdown-menu"><div class="dd-title">Notificaciones</div>
@@ -117,7 +121,7 @@ function buildLayout() {
 
   const footer = document.createElement('footer'); footer.className = 'main-footer';
   footer.innerHTML = `<div class="footer-grid">
-    <div><img class="footer-logo" src="logo-unlam-bt.png" alt="UNLaM"><p>Sistema de autogestión para estudiantes de la Universidad Nacional de La Matanza. Inscripciones, trámites y pagos en un solo lugar, sin filas.</p></div>
+    <div><img class="footer-logo" src="img/logo-unlam-bt.png" alt="UNLaM"><p>Sistema de autogestión para estudiantes de la Universidad Nacional de La Matanza. Inscripciones, trámites y pagos en un solo lugar, sin filas.</p></div>
     <div><h4>Contacto</h4><ul>
       <li>Florencio Varela 1903, San Justo, Buenos Aires</li>
       <li>Teléfono: (011) 4480-8900</li><li>Correo: intraconsulta@unlam.edu.ar</li>
