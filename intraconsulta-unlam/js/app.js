@@ -125,7 +125,7 @@ function buildLayout() {
     <div><h4>Enlaces útiles</h4><ul>
       <li><a href="https://www.unlam.edu.ar" target="_blank" rel="noopener">Sitio web de UNLaM</a></li>
       <li><a href="ayuda.html#faq">Preguntas frecuentes</a></li><li><a href="calendario.html">Calendario académico</a></li>
-      <li><a href="ayuda.html#tickets">Generar un ticket</a></li></ul></div></div>
+      <li><a href="ayuda.html#tickets">Generar una consulta</a></li></ul></div></div>
     <div class="footer-bottom">© 2026 Universidad Nacional de La Matanza. Prototipo académico de Visualización e Interfaces.</div>`;
   body.append(footer);
 
