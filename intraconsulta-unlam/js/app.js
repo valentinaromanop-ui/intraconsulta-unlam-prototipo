@@ -1,6 +1,22 @@
 /* INTRACONSULTA UNLaM - comportamiento compartido (header, menu, footer, chatbot, tabs, calendario) */
 (() => {
 const USER = { name: 'Valentina Romano', carrera: 'Ingeniería en Informática', legajo: '12345678' };
+const PROFILE_STORAGE_KEY = 'ic_profile';
+function loadProfile() {
+  try {
+    const raw = localStorage.getItem(PROFILE_STORAGE_KEY);
+    if (!raw) return {};
+    const saved = JSON.parse(raw);
+    if (!saved || typeof saved !== 'object' || Array.isArray(saved)) throw new Error('Invalid profile data');
+    return ['email', 'phone', 'address'].reduce((profile, key) => {
+      if (typeof saved[key] === 'string') profile[key] = saved[key];
+      return profile;
+    }, {});
+  } catch (e) {
+    toast('No se pudieron cargar los datos guardados del perfil.');
+    return {};
+  }
+}
 const P = (p, l = '') => p; // alias
 const ICONS = {
   menu:'<path d="M3 6h18M3 12h18M3 18h18"/>',
@@ -30,6 +46,7 @@ const MONTHS = ['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov
 
 const NAV = [
   ['home','home.html','Panel principal','home'],
+  ['perfil','perfil.html','Mi perfil','user'],
   ['academica','academica.html','Info académica','grad'],
   ['tramites','tramites.html','Trámites y reclamos','file'],
   ['pagos','pagos.html','Pagos','card'],
@@ -57,6 +74,8 @@ function toast(msg) {
   const t = document.createElement('div'); t.className = 'toast'; t.setAttribute('role', 'status'); t.textContent = msg;
   document.body.append(t); setTimeout(() => t.remove(), 3200);
 }
+Object.assign(USER, loadProfile());
+Object.assign(USER, { dni: '40.123.456', email: USER.email || 'valentina.romano@alumno.unlam.edu.ar', phone: USER.phone || '11 4567-8901', address: USER.address || 'San Justo, Buenos Aires' });
 
 /* ---------- Layout: header, menu lateral, footer, chatbot ---------- */
 function buildLayout() {
@@ -77,6 +96,7 @@ function buildLayout() {
         <div class="dropdown"><button class="icon-btn" id="userBtn" aria-label="Menú de usuario" aria-expanded="false">${ico('user', 22)}</button>
           <div class="dropdown-menu"><div class="dd-title">${USER.name}</div>
             <span class="dd-item">${USER.carrera}<small>Legajo ${USER.legajo}</small></span>
+            <a class="dd-item" href="perfil.html">Mi perfil</a>
             <a class="dd-item" href="index.html">Cerrar sesión</a></div></div>
        </div>`;
   body.prepend(header);
@@ -112,6 +132,11 @@ function buildLayout() {
   if (!auth) buildChat();
   $$('[data-ico]').forEach(e => e.innerHTML = ico(e.dataset.ico, +e.dataset.size || 20));
   $$('[data-user-name]').forEach(e => e.textContent = USER.name.split(' ')[0]);
+  $$('[data-profile-name]').forEach(e => e.textContent = USER.name);
+  $$('[data-profile-career]').forEach(e => e.textContent = USER.carrera);
+  $$('[data-profile-legajo]').forEach(e => e.textContent = USER.legajo);
+  $$('[data-profile-dni]').forEach(e => e.textContent = USER.dni);
+  $$('[data-profile-initials]').forEach(e => e.textContent = USER.name.split(/\s+/).map(n => n[0]).join('').slice(0, 2).toUpperCase());
 
   // dropdowns
   $$('.dropdown > button').forEach(b => b.addEventListener('click', e => {
@@ -192,6 +217,30 @@ function initForms() {
   const pay = $('#payBtn'); if (pay) pay.onclick = () => toast('Redirigiendo a Mercado Pago para completar el pago...');
 }
 
+/* ---------- Perfil ---------- */
+function initProfile() {
+  const form = $('#profileForm'); if (!form) return;
+  $('#profileEmail').value = USER.email;
+  $('#profilePhone').value = USER.phone;
+  $('#profileAddress').value = USER.address;
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    const updated = {
+      email: $('#profileEmail').value.trim(),
+      phone: $('#profilePhone').value.trim(),
+      address: $('#profileAddress').value.trim()
+    };
+    try {
+      localStorage.setItem(PROFILE_STORAGE_KEY, JSON.stringify(updated));
+    } catch (error) {
+      toast('No se pudieron guardar los cambios. Revisá el almacenamiento del navegador.');
+      return;
+    }
+    Object.assign(USER, updated);
+    toast('Tus datos de contacto se actualizaron correctamente.');
+  });
+}
+
 /* ---------- Carrusel ---------- */
 function initCarousel() {
   const box = $('#carousel'); if (!box) return;
@@ -261,5 +310,5 @@ function initError() {
   if (e && q) e.textContent = `No encontramos resultados para "${q}".`;
 }
 
-buildLayout(); initTabs(); initForms(); initCarousel(); initUpcoming(); initCalendar(); initError();
+buildLayout(); initTabs(); initForms(); initProfile(); initCarousel(); initUpcoming(); initCalendar(); initError();
 })();
