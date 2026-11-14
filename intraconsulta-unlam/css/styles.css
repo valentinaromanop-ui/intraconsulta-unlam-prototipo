@@ -71,6 +71,15 @@ button{cursor:pointer}
 .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
 .section-title{font-size:1.2rem;margin:26px 0 14px}
+.profile-heading{display:flex;align-items:center;gap:16px;margin-bottom:24px}
+.profile-avatar{width:64px;height:64px;flex-shrink:0;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--unlam-green-light);color:var(--unlam-green);font-family:'Poppins',sans-serif;font-size:1.2rem;font-weight:700}
+.profile-heading h2{font-size:1.15rem;margin-bottom:4px}
+.profile-career{color:var(--text-muted);margin-bottom:8px}
+.profile-details{display:grid;gap:14px}
+.profile-details div{display:flex;justify-content:space-between;gap:16px;padding-bottom:10px;border-bottom:1px solid var(--border-color)}
+.profile-details div:last-child{padding-bottom:0;border-bottom:none}
+.profile-details dt{color:var(--text-muted)}
+.profile-details dd{font-weight:600;text-align:right}
 
 /* Botones */
 .btn-primary,.btn-white,.btn-outline,.btn-mp{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:11px 24px;border-radius:var(--radius-pill);font-weight:600;font-size:.95rem;border:2px solid transparent;transition:background .2s}
@@ -239,4 +248,3 @@ details[open] summary{color:var(--unlam-green)}
   .chatbot-window{right:16px;bottom:86px}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
-

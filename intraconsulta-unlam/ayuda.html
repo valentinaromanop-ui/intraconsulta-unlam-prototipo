@@ -23,6 +23,7 @@
     <button class="btn-primary" data-open-chat type="button">Abrir chat</button> <a class="btn-outline" href="#ticket" onclick="location.hash='ticket';location.reload()">Hablar con una persona</a></div></section>
   <section class="tab-panel" id="ticket"><form class="card" data-demo="Consulta #1043 creada. Te avisamos cuando respondan."><div class="card-header"><h2>Nueva constancia de soporte</h2></div>
     <div class="form-row"><div class="form-group"><label for="ta">Área</label><select class="form-control" id="ta"><option>Alumnos</option><option>Pagos</option><option>Sistemas</option></select></div>
+    <div class="form-group"><label>Cómo querés que te atiendan</label><div class="radio-row"><label><input type="radio" name="canal" checked> Una persona</label><label><input type="radio" name="canal"> Asistente virtual</label></div></div></div>
     <div class="form-group"><label for="ts">Asunto</label><input class="form-control" id="ts" required></div>
     <div class="form-group"><label for="tm">Mensaje</label><textarea class="form-control" id="tm" required></textarea></div>
     <button class="btn-primary" type="submit">Enviar consulta</button></form></section>
