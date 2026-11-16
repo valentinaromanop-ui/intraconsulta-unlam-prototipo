@@ -12,24 +12,158 @@
 <body data-page="pagos" data-layout="app">
 <main class="main-content">
   <h1 class="page-title">Pagos</h1>
-  <p class="page-sub">Abonás con Mercado Pago o tarjeta y el comprobante queda guardado acá.</p>
+  <p class="page-sub">Elegí tu medio de pago preferido y descargá tu comprobante desde acá.</p>
+
   <div class="alert alert-warning"><span data-ico="alert"></span><div><strong>Curso de ingreso 2027: vence el 20/11</strong>Pagá antes de esa fecha para asegurar tu vacante.</div></div>
-  <div class="subnav-pills" data-tabs><button type="button" class="pill-tab active" data-tab="pagar">Pagar</button><button type="button" class="pill-tab" data-tab="comprobantes">Comprobantes</button><button type="button" class="pill-tab" data-tab="estado">Estado de pagos</button></div>
-  <section class="tab-panel" id="pagar"><div class="grid-2">
-    <div class="card"><div class="card-header"><h2>Elegí qué querés pagar</h2></div><div class="form-group"><label for="concepto">Concepto</label>
-      <select class="form-control" id="concepto"><option data-price="35000">Curso de ingreso 2027</option><option data-price="28000">Materia de verano: Programación Avanzada</option><option data-price="28000">Materia de verano: Base de Datos</option></select></div>
-      <p class="hint">Si tenés beca aprobada, el descuento se aplica automáticamente.</p></div>
-    <div class="card"><div class="card-header"><h2>Resumen</h2></div><p>Total a pagar</p><p style="font-family:Poppins,sans-serif;font-size:2rem;font-weight:700;color:var(--unlam-green);margin-bottom:16px" id="monto"></p>
-      <button class="btn-mp" id="payBtn" type="button">Pagar con Mercado Pago</button><p class="hint" style="margin-top:10px">Pago seguro. Aceptamos tarjetas de crédito y débito.</p></div></div></section>
-  <section class="tab-panel" id="comprobantes"><div class="card"><div class="card-header"><h2>Mis comprobantes</h2></div><div class="table-wrap"><table>
-    <tr><th>N.º</th><th>Concepto</th><th>Fecha</th><th>Monto</th><th></th></tr>
-    <tr><td>0001-3341</td><td>Materia de verano 2026</td><td>12/02/2026</td><td>$ 26.000</td><td><button class="btn-outline btn-sm" onclick="document.dispatchEvent(new Event('x'))">Descargar</button></td></tr>
-    <tr><td>0001-2987</td><td>Curso de ingreso 2026</td><td>20/11/2025</td><td>$ 32.000</td><td><button class="btn-outline btn-sm">Descargar</button></td></tr></table></div></div></section>
-  <section class="tab-panel" id="estado"><div class="card"><div class="card-header"><h2>Estado de mis pagos</h2></div><div class="table-wrap"><table>
-    <tr><th>Concepto</th><th>Vencimiento</th><th>Estado</th></tr>
-    <tr><td>Curso de ingreso 2027</td><td>20/11/2026</td><td><span class="status-badge status-wait">Pendiente</span></td></tr>
-    <tr><td>Materia de verano 2026</td><td>15/02/2026</td><td><span class="status-badge status-ok">Acreditado</span></td></tr></table></div></div></section>
+
+  <div class="subnav-pills" data-tabs>
+    <button type="button" class="pill-tab active" data-tab="pagar">Pagar</button>
+    <button type="button" class="pill-tab" data-tab="comprobantes">Comprobantes</button>
+    <button type="button" class="pill-tab" data-tab="estado">Estado de pagos</button>
+  </div>
+
+  <section class="tab-panel" id="pagar">
+    <div class="grid-2">
+      <!-- COLUMNA IZQUIERDA: CONCEPTO Y MEDIO DE PAGO -->
+      <div class="card">
+        <div class="card-header"><h2>Elegí qué y cómo pagar</h2></div>
+        
+        <div class="form-group">
+          <label for="concepto">Concepto</label>
+          <select class="form-control" id="concepto">
+            <option data-price="35000">Curso de ingreso 2027</option>
+            <option data-price="28000">Materia de verano: Programación Avanzada</option>
+            <option data-price="28000">Materia de verano: Base de Datos</option>
+          </select>
+        </div>
+
+        <div class="form-group" style="margin-top:16px">
+          <label for="medioPago">Medio de pago</label>
+          <select class="form-control" id="medioPago">
+            <option value="mp">Mercado Pago (Dinero en cuenta / QR)</option>
+            <option value="tarjeta">Tarjeta de crédito o débito</option>
+            <option value="transferencia">Transferencia bancaria (CBU / Alias)</option>
+            <option value="efectivo">Efectivo (Pago Fácil, Rapipago o Tesorería UNLaM)</option>
+          </select>
+        </div>
+
+        <p class="hint" style="margin-top:12px">Si tenés beca aprobada, el descuento se aplica automáticamente.</p>
+      </div>
+
+      <!-- COLUMNA DERECHA: RESUMEN DINÁMICO -->
+      <div class="card">
+        <div class="card-header"><h2>Resumen</h2></div>
+        <p>Total a pagar</p>
+        <p style="font-family:Poppins,sans-serif;font-size:2rem;font-weight:700;color:var(--unlam-green);margin-bottom:16px" id="monto">$ 35.000</p>
+
+        <!-- PANEL: MERCADO PAGO -->
+        <div id="info-mp" class="pago-detalle">
+          <button class="btn-mp" id="payBtn" type="button" style="width:100%">Pagar con Mercado Pago</button>
+          <p class="hint" style="margin-top:10px">Acreditación instantánea. Podés usar dinero en cuenta o tarjetas asociadas.</p>
+        </div>
+
+        <!-- PANEL: TARJETA CRÉDITO / DÉBITO -->
+        <div id="info-tarjeta" class="pago-detalle" style="display:none">
+          <div class="form-group" style="margin-bottom:10px">
+            <label for="numTarjeta" style="font-size:0.85rem">Número de tarjeta</label>
+            <input type="text" id="numTarjeta" class="form-control" placeholder="0000 0000 0000 0000" maxlength="19">
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px">
+            <div>
+              <label for="vencTarjeta" style="font-size:0.85rem">Vencimiento</label>
+              <input type="text" id="vencTarjeta" class="form-control" placeholder="MM/AA" maxlength="5">
+            </div>
+            <div>
+              <label for="cvvTarjeta" style="font-size:0.85rem">Código (CVV)</label>
+              <input type="text" id="cvvTarjeta" class="form-control" placeholder="123" maxlength="4">
+            </div>
+          </div>
+          <button class="btn-mp" type="button" style="width:100%;background:var(--unlam-green)" onclick="alert('Procesando pago con tarjeta...')">Abonar con tarjeta</button>
+          <p class="hint" style="margin-top:10px">Aceptamos Visa, Mastercard, Cabal y American Express (1 pago sin interés).</p>
+        </div>
+
+        <!-- PANEL: TRANSFERENCIA BANCARIA -->
+        <div id="info-transferencia" class="pago-detalle" style="display:none">
+          <div class="alert alert-info" style="margin-bottom:12px">
+            <div>
+              <strong>Datos para transferir:</strong><br>
+              Alias: <code>UNLAM.PAGOS.ALUMNOS</code><br>
+              CBU: <code>0110599520000012345678</code><br>
+              CUIT: <code>30-63984512-3</code>
+            </div>
+          </div>
+          <button class="btn-outline" type="button" style="width:100%" onclick="navigator.clipboard.writeText('UNLAM.PAGOS.ALUMNOS'); alert('Alias copiado al portapapeles')">Copiar Alias</button>
+          <p class="hint" style="margin-top:10px">La acreditación demora entre 24 y 48 hs hábiles. Guardá tu comprobante.</p>
+        </div>
+
+        <!-- PANEL: EFECTIVO (PAGO FÁCIL / RAPIPAGO / PRESENCIAL) -->
+        <div id="info-efectivo" class="pago-detalle" style="display:none">
+          <div class="alert alert-info" style="margin-bottom:12px">
+            <div>
+              <strong>Opciones en efectivo:</strong>
+              <ul style="margin:6px 0 0 18px;padding:0;line-height:1.5">
+                <li><strong>Pago Fácil / Rapipago:</strong> Descargá el cupón y presentalo en cualquier sucursal.</li>
+                <li><strong>Presencial en UNLaM:</strong> Acercate a Tesorería (Edificio Central, PB) de lunes a viernes de 9:00 a 19:00 hs con tu DNI.</li>
+              </ul>
+            </div>
+          </div>
+          <button class="btn-outline" type="button" style="width:100%" onclick="alert('Descargando cupón de pago con código de barras...')">Descargar cupón de pago</button>
+          <p class="hint" style="margin-top:10px">En redes extra-bancarias el pago impacta dentro de las 48 hs hábiles.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="tab-panel" id="comprobantes">
+    <div class="card">
+      <div class="card-header"><h2>Mis comprobantes</h2></div>
+      <div class="table-wrap">
+        <table>
+          <tr><th>N.º</th><th>Concepto</th><th>Fecha</th><th>Monto</th><th></th></tr>
+          <tr><td>0001-3341</td><td>Materia de verano 2026</td><td>12/02/2026</td><td>$ 26.000</td><td><button class="btn-outline btn-sm" onclick="document.dispatchEvent(new Event('x'))">Descargar</button></td></tr>
+          <tr><td>0001-2987</td><td>Curso de ingreso 2026</td><td>20/11/2025</td><td>$ 32.000</td><td><button class="btn-outline btn-sm">Descargar</button></td></tr>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="tab-panel" id="estado">
+    <div class="card">
+      <div class="card-header"><h2>Estado de mis pagos</h2></div>
+      <div class="table-wrap">
+        <table>
+          <tr><th>Concepto</th><th>Vencimiento</th><th>Estado</th></tr>
+          <tr><td>Curso de ingreso 2027</td><td>20/11/2026</td><td><span class="status-badge status-wait">Pendiente</span></td></tr>
+          <tr><td>Materia de verano 2026</td><td>15/02/2026</td><td><span class="status-badge status-ok">Acreditado</span></td></tr>
+        </table>
+      </div>
+    </div>
+  </section>
 </main>
-  <script src="js/app.js"></script>
+
+<script src="js/app.js"></script>
+<script>
+  // Cambio dinámico de medio de pago y actualización de monto
+  const selectMedio = document.getElementById('medioPago');
+  const selectConcepto = document.getElementById('concepto');
+  const montoEl = document.getElementById('monto');
+  const paneles = document.querySelectorAll('.pago-detalle');
+
+  function actualizarMonto() {
+    const opcion = selectConcepto.options[selectConcepto.selectedIndex];
+    const precio = Number(opcion.getAttribute('data-price') || 0);
+    montoEl.textContent = '$ ' + precio.toLocaleString('es-AR');
+  }
+
+  selectMedio.addEventListener('change', () => {
+    paneles.forEach(p => p.style.display = 'none');
+    const activo = document.getElementById('info-' + selectMedio.value);
+    if (activo) activo.style.display = 'block';
+  });
+
+  selectConcepto.addEventListener('change', actualizarMonto);
+  actualizarMonto();
+</script>
 </body>
 </html>
