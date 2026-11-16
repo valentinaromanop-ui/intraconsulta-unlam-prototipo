@@ -103,7 +103,7 @@ function buildLayout() {
 
   if (!auth) {
     const rail = document.createElement('button'); rail.className = 'sidebar-rail'; rail.setAttribute('aria-label', 'Abrir menú'); rail.setAttribute('aria-expanded', 'false');
-    rail.innerHTML = `${ico('menu', 26)}<span class="rail-text">MENÚ</span>`;
+    rail.innerHTML = `${ico('menu', 26)}<span class="rail-text"></span>`;
     const drawer = document.createElement('nav'); drawer.className = 'sidebar-drawer'; drawer.setAttribute('aria-label', 'Menú principal');
     drawer.innerHTML = `<div class="drawer-title">¿A dónde querés ir?</div>` + NAV.map(([k, h, l, i]) => `<a class="menu-pill-btn${k === page ? ' active' : ''}" href="${h}">${ico(i)}${l}</a>`).join('');
     const overlay = document.createElement('div'); overlay.className = 'drawer-overlay';
